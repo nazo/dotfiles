@@ -69,6 +69,9 @@ inoremap <Leader>w3cdtf <C-R>=strftime('%Y-%m-%dT%H:%M:%S+09:00')<CR>
 " search
 vnoremap * "zy:let @/ = @z<CR>n
 
+" neocomplcache
+let g:neocomplcache_enable_at_startup = 1 " 起動時に有効化
+
 " putline
 "-----------------------------------------------------------
 let putline_tw = 60
