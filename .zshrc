@@ -254,9 +254,9 @@ function ssh_screen(){
  eval server=\${$#}
   screen -t $server ssh "$@"
 }
-if [ x$TERM = xscreen ]; then
-  alias ssh=ssh_screen
-fi
+#if [ x$TERM = xscreen ]; then
+#  alias ssh=ssh_screen
+#fi
 
 autoload -U url-quote-magic
 zle -N self-insert url-quote-magic

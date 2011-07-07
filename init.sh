@@ -7,3 +7,9 @@ do
         ln -Fis "$PWD/$dotfile" $HOME
     fi
 done
+
+git submodule init
+git submodule update
+cd .vim/bundle/vundle
+git checkout master
+
