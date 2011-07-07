@@ -1,5 +1,74 @@
 set nocompatible
 
+filetype off                   " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+Bundle 'rails.vim'
+
+Bundle 'haml.zip'
+Bundle 'git-commit'
+Bundle 'YankRing.vim'
+Bundle 'EasyMotion'
+Bundle 'vimwiki'
+
+Bundle 'quickrun'
+Bundle 'git://github.com/taq/vim-git-branch-info.git'
+Bundle 'matchit.zip'
+Bundle 'mru.vim'
+Bundle 'git://github.com/thinca/vim-ref.git'
+
+Bundle 'newspaper.vim'
+Bundle 'xoria256.vim'
+
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'motemen/git-vim'
+
+Bundle 'tsukkee/unite-help'
+
+Bundle 'kana/vim-textobj-user'
+
+Bundle 'Shougo/neocomplcache'
+Bundle 'Shougo/vimfiler'
+Bundle 'Shougo/unite.vim'
+
+Bundle 'h1mesuke/vim-alignta'
+Bundle 'h1mesuke/unite-outline'
+
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-cucumber'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-surround'
+
+Bundle 'ecomba/vim-ruby-refactoring'
+Bundle 'nelstrom/vim-textobj-rubyblock'
+
+filetype plugin indent on     " required! 
+"
+" Brief help
+"
+" :BundleInstall  - install bundles (won't update installed)
+" :BundleInstall! - update if installed
+"
+" :Bundles foo    - search for foo
+" :Bundles! foo   - refresh cached list and search for foo
+"
+" :BundleClean    - confirm removal of unused bundles
+" :BundleClean!   - remove without confirmation
+"
+" see :h vundle for more details
+" or wiki for FAQ
+" Note: comments after Bundle command are not allowed..
+
+
 " display
 "-----------------------------------------------------------
 " Switch syntax highlighting on, when the terminal has colors
