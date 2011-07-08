@@ -24,6 +24,7 @@ Bundle 'quickrun'
 Bundle 'git://github.com/taq/vim-git-branch-info.git'
 Bundle 'matchit.zip'
 Bundle 'mru.vim'
+Bundle 'svn-diff.vim'
 Bundle 'git://github.com/thinca/vim-ref.git'
 
 Bundle 'newspaper.vim'
