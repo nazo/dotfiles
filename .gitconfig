@@ -1,6 +1,17 @@
-git config --global alias.co checkout
-git config --global alias.st 'status'
-git config --global alias.ci 'commit -av'
-git config --global alias.di 'diff'
-git config --global alias.br 'branch'
+[color]
+    ui = auto
+    branch = auto
+    diff = auto
+    status = auto
+
+[alias]
+    co = checkout
+    st = status
+    ci = commit -av
+    df = diff
+    br = branch
+
+[user]
+    name = nazo
+    email = takuya0219@gmail.com
 
