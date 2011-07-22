@@ -15,16 +15,6 @@ autoload -U colors; colors
 # プロンプトが表示されるたびにプロンプト文字列を評価、置換する
 setopt prompt_subst
 
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' formats '(%s)-[%b]'
-zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
-precmd () {
-    psvar=()
-    LANG=en_US.UTF-8 vcs_info
-    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
-}
-RPROMPT="[%~]%1(v|%F{green}%1v%f|)"
-
 ## Default shell configuration
 #
 # set prompt
@@ -207,6 +197,9 @@ case "${TERM}" in
 kterm*|xterm*|screen)
     precmd() {
       echo -ne "\033]0;${USER}@${HOST%%.*}\007"
+      psvar=()
+      LANG=en_US.UTF-8 vcs_info
+      [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
     }
     export LSCOLORS=gxfxcxdxbxegedabagacad
     export LS_COLORS='di=32:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
@@ -214,6 +207,14 @@ kterm*|xterm*|screen)
         'di=32' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
     ;;
 esac
+
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git svn hg bzr           # new
+zstyle ':vcs_info:*' formats '(%s)-[%b]'
+zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
+zstyle ':vcs_info:(svn|bzr):*' branchformat '%b:r%r' # new
+zstyle ':vcs_info:bzr:*' use-simple true             # new
+RPROMPT="[%~]%1(v|%F{green}%1v%f|)"
 
 
 ## load user .zshrc configuration file
