@@ -15,6 +15,16 @@ autoload -U colors; colors
 # プロンプトが表示されるたびにプロンプト文字列を評価、置換する
 setopt prompt_subst
 
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' formats '(%s)-[%b]'
+zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
+precmd () {
+    psvar=()
+    LANG=en_US.UTF-8 vcs_info
+    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+}
+RPROMPT="[%~]%1(v|%F{green}%1v%f|)"
+
 ## Default shell configuration
 #
 # set prompt
@@ -25,7 +35,6 @@ case ${UID} in
 0)
     PROMPT="# %{${reset_color}%}"
     PROMPT2="%B%{${fg[red]}%}%_#%{${reset_color}%}%b "
-    RPROMPT='[%~]'
     SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
     [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
         PROMPT="%{${fg[cyan]}%}root%B${PROMPT}"
@@ -33,7 +42,6 @@ case ${UID} in
 *)
     PROMPT="%% %{${reset_color}%}"
     PROMPT2="%{${fg[red]}%}%_%%%{${reset_color}%} "
-    RPROMPT='[%~]'
     SPROMPT="%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
     [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
         PROMPT="%{${fg[cyan]}%}%n%B${PROMPT}"
@@ -260,6 +268,11 @@ function ssh_screen(){
 
 autoload -U url-quote-magic
 zle -N self-insert url-quote-magic
+
+# git completion
+# autoload bashcompinit
+# bashcompinit
+# source $HOME/dotfiles/git-completion.bash
 
 #sabel
 if [ -z "$SABEL_HOME" ] ; then

@@ -82,8 +82,10 @@ endif
 set shortmess+=I
 
 set list
-set listchars=tab:>-,trail:-,extends:>,precedes:<
+set listchars=tab:>.,trail:_,extends:>,precedes:<
 set display=uhex
+highlight JpSpace cterm=underline ctermfg=Blue guifg=Blue
+au BufRead,BufNew * match JpSpace /　/
 
 set laststatus=1
 set cmdheight=1
