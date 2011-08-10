@@ -289,7 +289,7 @@ stty stop undef
 
 export JAVA_HOME=/usr/lib/jvm/java-6-sun
 export JRUBY_HOME=/opt/gae-j
-export PATH=/opt/bin:$HOME/bin:/opt/screen/bin:/opt/zsh/bin:/opt/gae-j/bin:/usr/local/google_appengine:$PATH:$JRUBY_HOME/bin:/opt/ctags/bin:$HOME/flex_sdk/bin:$JAVA_HOME/bin:$HOME/opt/tig:$HOME/app/termtter/bin:$HOME/.cabal/bin
+export PATH=/opt/bin:$HOME/bin:/opt/screen/bin:/opt/zsh/bin:/opt/gae-j/bin:/usr/local/google_appengine:$PATH:$JRUBY_HOME/bin:/opt/ctags/bin:$HOME/flex_sdk/bin:$JAVA_HOME/bin:$HOME/opt/tig:$HOME/app/termtter/bin:$HOME/.cabal/bin:/usr/gnu/bin:/opt/local/bin:/usr/local/bin:/sbin:/usr/sbin
 export EDITOR=/usr/bin/vim
 
 if [ $SHLVL = 1 ];then
