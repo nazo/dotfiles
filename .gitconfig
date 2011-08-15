@@ -15,3 +15,5 @@
     name = nazo
     email = takuya0219@gmail.com
 
+[http]
+	sslcainfo = /usr/share/curl/curl-ca-bundle.crt
