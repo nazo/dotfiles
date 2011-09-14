@@ -72,7 +72,7 @@ nnoremap <C-l> <ESC>:!php -l %<CR>
 " "inoremap ( (  )<LEFT><LEFT>
 
 " Maybe this way in other coding standards
-" inoremap ( ( )<LEFT><LEFT> 
+" inoremap ( ( )<LEFT><LEFT>
 
 " inoremap " ""<LEFT>
 " inoremap ' ''<LEFT>
@@ -94,7 +94,7 @@ nnoremap <C-l> <ESC>:!php -l %<CR>
 
 " The completion dictionary is provided by Rasmus:
 " http://lerdorf.com/funclist.txt
-setlocal dictionary-=/home/dotxp/funclist.txt dictionary+=/home/dotxp/funclist.txt
+" setlocal dictionary-=/home/dotxp/funclist.txt dictionary+=/home/dotxp/funclist.txt
 " Use the dictionary completion
 setlocal complete-=k complete+=k
 
@@ -134,15 +134,15 @@ func! PhpAlign() range
 			continue
 		endif
 		" \{-\} matches ungreed *
-        let l:index = substitute (getline (l:line), '^\s*\(.\{-\}\)\s*\S\{0,1}=\S\{0,1\}\s.*$', '\1', "") 
+        let l:index = substitute (getline (l:line), '^\s*\(.\{-\}\)\s*\S\{0,1}=\S\{0,1\}\s.*$', '\1', "")
         let l:indexlength = strlen (l:index)
         let l:maxlength = l:indexlength > l:maxlength ? l:indexlength : l:maxlength
         let l:line = l:line + 1
     endwhile
-    
+
 	let l:line = a:firstline
 	let l:format = "%s%-" . l:maxlength . "s %s %s"
-    
+
 	while l:line <= l:endline
 		if getline (l:line) =~ '^\s*\/\/.*$'
 			let l:line = l:line + 1
@@ -160,7 +160,7 @@ func! PhpAlign() range
     let &g:paste = l:paste
 endfunc
 
-" }}}   
+" }}}
 
 " {{{ (Un-)comment
 
@@ -210,4 +210,6 @@ function! PostQuickfixCmd()
   endif
 endfunction
 
+let g:ref_phpmanual_path = $HOME.'/.vim/doc/php-chunked-xhtml/'
+let g:ref_phpmanual_cmd = 'w3m -dump %s'
 

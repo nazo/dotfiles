@@ -12,4 +12,11 @@ git submodule init
 git submodule update
 cd .vim/bundle/vundle
 git checkout master
+cd ../../..
+
+cd .vim/doc/download
+wget http://jp.php.net/get/php_manual_ja.tar.gz/from/this/mirror
+tar zxvf php_manual_ja.tar.gz
+rm php_manual_ja.tar.gz
+cd ../../..
 

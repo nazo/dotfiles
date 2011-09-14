@@ -6,7 +6,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
-" required! 
+" required!
 Bundle 'gmarik/vundle'
 
 " My Bundles here:
@@ -36,10 +36,13 @@ Bundle 'motemen/git-vim'
 Bundle 'tsukkee/unite-help'
 
 Bundle 'kana/vim-textobj-user'
+Bundle 'kana/vim-fakeclip'
 
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/vimfiler'
 Bundle 'Shougo/unite.vim'
+
+Bundle 'php.vim'
 
 Bundle 'h1mesuke/vim-alignta'
 Bundle 'h1mesuke/unite-outline'
@@ -54,7 +57,7 @@ Bundle 'nelstrom/vim-textobj-rubyblock'
 
 Bundle 'altercation/vim-colors-solarized'
 
-filetype plugin indent on     " required! 
+filetype plugin indent on     " required!
 "
 " Brief help
 "
@@ -121,6 +124,8 @@ set softtabstop=4
 set expandtab
 set smarttab
 inoremap <C-Tab> <C-V><Tab>
+
+set modelines=5
 
 " backup
 "-----------------------------------------------------------
@@ -223,4 +228,14 @@ endif " has("autocmd")
 
 colorscheme mrkn256
 " colorscheme solarized
+
+autocmd BufNewFile,BufRead *.ctp set filetype=php
+autocmd BufNewFile,BufRead *.twig set filetype=html
+
+" 行末の余計なスペース削除
+autocmd BufWritePre * :%s/\s\+$//ge
+
+if filereadable(expand('~/.vimrc.mine'))
+  source ~/.vimrc.mine
+endif
 

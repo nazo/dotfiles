@@ -143,6 +143,8 @@ alias grep="grep -nri"
 alias gs="git svn"
 alias gsup="git stash;git svn rebase;git stash pop;"
 
+alias svn_add_all="svn st | grep '^\?' | sed -e 's/\?[ ]*/svn add /g' | sh"
+
 case "${OSTYPE}" in
 darwin*)
     alias updateports="sudo port selfupdate; sudo port outdated"
