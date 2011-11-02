@@ -287,7 +287,7 @@ stty stop undef
 
 export JAVA_HOME=/usr/lib/jvm/java-6-sun
 export JRUBY_HOME=/opt/gae-j
-export PATH=$PATH:/usr/gnu/bin:/usr/local/bin:/sbin:/usr/sbin:/opt/local/bin:/opt/bin:$HOME/bin:/opt/screen/bin:/opt/zsh/bin:/opt/gae-j/bin:/usr/local/google_appengine:$JRUBY_HOME/bin:/opt/ctags/bin:$HOME/flex_sdk/bin:$JAVA_HOME/bin:$HOME/opt/tig:$HOME/app/termtter/bin:$HOME/.cabal/bin
+export PATH=$HOME/bin:$HOME/flex_sdk/bin:$HOME/opt/tig:$HOME/app/termtter/bin:$HOME/.cabal/bin:$JRUBY_HOME/bin:$JAVA_HOME/bin:/opt/local/bin:/opt/bin:/opt/screen/bin:/opt/zsh/bin:/opt/gae-j/bin:/usr/local/google_appengine:/opt/ctags/bin:$PATH:/usr/gnu/bin:/usr/local/bin:/sbin:/usr/sbin
 export EDITOR=/usr/bin/vim
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
 
