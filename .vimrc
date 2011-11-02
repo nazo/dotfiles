@@ -118,6 +118,8 @@ Bundle 'nelstrom/vim-textobj-rubyblock'
 
 Bundle 'altercation/vim-colors-solarized'
 
+Bundle 'kchmck/vim-coffee-script'
+
 filetype plugin indent on     " required!
 "
 " Brief help
@@ -210,7 +212,10 @@ inoremap <Leader>w3cdtf <C-R>=strftime('%Y-%m-%dT%H:%M:%S+09:00')<CR>
 vnoremap * "zy:let @/ = @z<CR>n
 
 " neocomplcache
-let g:neocomplcache_enable_at_startup = 1 " 起動時に有効化
+let g:neocomplcache_enable_at_startup = 1
+
+" vimfiler
+let g:vimfiler_as_default_explorer = 1
 
 au QuickfixCmdPost vimgrep cw
 

@@ -26,14 +26,14 @@ case ${UID} in
     PROMPT="# %{${reset_color}%}"
     PROMPT2="%B%{${fg[red]}%}%_#%{${reset_color}%}%b "
     SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
-    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
+    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
         PROMPT="%{${fg[cyan]}%}root%B${PROMPT}"
     ;;
 *)
     PROMPT="%% %{${reset_color}%}"
     PROMPT2="%{${fg[red]}%}%_%%%{${reset_color}%} "
     SPROMPT="%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
-    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
+    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
         PROMPT="%{${fg[cyan]}%}%n%B${PROMPT}"
     ;;
 esac
@@ -65,7 +65,7 @@ setopt nolistbeep
 
 ## Keybind configuration
 #
-# emacs like keybind (e.x. Ctrl-a goes to head of a line and Ctrl-e goes 
+# emacs like keybind (e.x. Ctrl-a goes to head of a line and Ctrl-e goes
 #   to end of it)
 #
 # bindkey -e
@@ -153,7 +153,7 @@ darwin*)
 freebsd*)
     case ${UID} in
     0)
-        updateports() 
+        updateports()
         {
             if [ -f /usr/ports/.portsnap.INDEX ]
             then
@@ -287,7 +287,7 @@ stty stop undef
 
 export JAVA_HOME=/usr/lib/jvm/java-6-sun
 export JRUBY_HOME=/opt/gae-j
-export PATH=/opt/local/bin:/opt/bin:$HOME/bin:/opt/screen/bin:/opt/zsh/bin:/opt/gae-j/bin:/usr/local/google_appengine:$PATH:$JRUBY_HOME/bin:/opt/ctags/bin:$HOME/flex_sdk/bin:$JAVA_HOME/bin:$HOME/opt/tig:$HOME/app/termtter/bin:$HOME/.cabal/bin:/usr/gnu/bin:/opt/local/bin:/usr/local/bin:/sbin:/usr/sbin
+export PATH=$PATH:/usr/gnu/bin:/usr/local/bin:/sbin:/usr/sbin:/opt/local/bin:/opt/bin:$HOME/bin:/opt/screen/bin:/opt/zsh/bin:/opt/gae-j/bin:/usr/local/google_appengine:$JRUBY_HOME/bin:/opt/ctags/bin:$HOME/flex_sdk/bin:$JAVA_HOME/bin:$HOME/opt/tig:$HOME/app/termtter/bin:$HOME/.cabal/bin
 export EDITOR=/usr/bin/vim
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
 

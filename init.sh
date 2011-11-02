@@ -16,6 +16,7 @@ cd ../../..
 
 cd .vim/doc/download
 wget http://jp.php.net/get/php_manual_ja.tar.gz/from/this/mirror
+mv mirror php_manual_ja.tar.gz
 tar zxvf php_manual_ja.tar.gz
 rm php_manual_ja.tar.gz
 cd ../../..
