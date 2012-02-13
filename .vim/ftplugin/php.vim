@@ -192,12 +192,14 @@ let php_noShortTags = 1
 let php_folding = 1
 
 " Auto expand tabs to spaces
-setlocal noexpandtab
+" setlocal noexpandtab
 
 setlocal tabstop=4
 setlocal shiftwidth=4
 
 setlocal nofoldenable
+
+setlocal expandtab
 
 " ファイルタイプがPHPのファイルを保存すると即座にphp -lでチェックを行う
 " au QuickfixCmdPost make call PostQuickfixCmd()
