@@ -348,8 +348,10 @@ let g:neocomplcache_temporary_dir = $HOME.'/.neocon'
 
 "シンタックス補完を無効に
 let g:neocomplcache_plugin_disable = {
-  \ 'syntax_complete' : 1,
-  \ }
+\ 'tags_complete' : 1,
+\ 'omni_complete' : 1,
+\ 'syntax_complete' : 1,
+\ }
 
 "補完するためのキーワードパターンを指定
 if !exists('g:neocomplcache_keyword_patterns')
