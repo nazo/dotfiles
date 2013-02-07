@@ -1,3 +1,6 @@
+set smartindent
+set autoindent
 set ignorecase
 set smartcase
+set saney
 

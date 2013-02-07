@@ -301,7 +301,6 @@ if [ $SHLVL = 1 ];then
 #  sudo /usr/sbin/ntpdate ntp.jst.mfeed.ad.jp > /dev/null 2>&1 &
 #  /usr/bin/php /home/nazo/coreserver_reg.php > /dev/null 2>&1 &
 
-#  screen -xR
 fi
 
 is_screen_running() {
@@ -337,4 +336,3 @@ if ! is_screen_or_tmux_running && shell_has_started_interactively; then
         fi
     done
 fi
-

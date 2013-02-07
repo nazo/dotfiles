@@ -103,8 +103,6 @@ Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/vimfiler'
 Bundle 'Shougo/unite.vim'
 
-Bundle 'php.vim'
-
 Bundle 'h1mesuke/vim-alignta'
 Bundle 'h1mesuke/unite-outline'
 
@@ -123,6 +121,10 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'mattn/gist-vim'
 Bundle 'Shougo/vimproc'
 Bundle 'Shougo/vimshell'
+
+Bundle 'scrooloose/syntastic'
+
+Bundle '2072/PHP-Indenting-for-VIm'
 
 filetype plugin indent on     " required!
 "
@@ -449,12 +451,6 @@ endif
 if !exists('g:neocomplcache_ctags_arguments_list')
     let g:neocomplcache_ctags_arguments_list = {}
 endif
-
-
-
-
-
-
 
 
 if filereadable(expand('~/.vimrc.mine'))

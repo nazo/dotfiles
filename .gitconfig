@@ -12,16 +12,16 @@
     br = branch
 
 [user]
-	name = nazo
-    email = takuya0219@gmail.com
+	name = takuya sato
+	email = takuya0219@gmail.com
 
 [http]
-	sslcainfo = /usr/local/etc/certs/DigiCertHighAssuranceEVRootCA.crt
+	sslcainfo = /Users/sato/DigiCertHighAssuranceEVRootCA.crt
 [core]
-	excludesfile = /Users/nazo/.gitignore_global
+	excludesfile = /Users/sato/.gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
