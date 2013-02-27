@@ -203,6 +203,11 @@ set backupdir=~/.vimbackup
 set swapfile
 set directory=~/.vimswp
 
+" タブページを常に表示
+set showtabline=2
+" gVimでもテキストベースのタブページを使う
+set guioptions-=e
+
 " key map
 " move at line
 nnoremap j gj
