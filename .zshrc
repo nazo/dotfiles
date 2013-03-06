@@ -265,6 +265,17 @@ function ssh_screen(){
 #  alias ssh=ssh_screen
 #fi
 
+if [ $TERM = screen ]; then
+    function mosh_tmux() {
+        tmux new-window -n $@ "exec mosh $@"
+    }
+    alias mosh=mosh_tmux
+    function ssh_tmux() {
+        tmux new-window -n $@ "exec ssh $@"
+    }
+    alias ssh=ssh_tmux
+fi
+
 autoload -U url-quote-magic
 zle -N self-insert url-quote-magic
 
@@ -291,17 +302,6 @@ export PATH=$HOME/bin:$HOME/flex_sdk/bin:$HOME/opt/tig:$HOME/app/termtter/bin:$H
 export EDITOR=/usr/bin/vim
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
 
-
-## load user .zshrc configuration file
-#
-[ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
-
-
-if [ $SHLVL = 1 ];then
-#  sudo /usr/sbin/ntpdate ntp.jst.mfeed.ad.jp > /dev/null 2>&1 &
-#  /usr/bin/php /home/nazo/coreserver_reg.php > /dev/null 2>&1 &
-
-fi
 
 is_screen_running() {
     # tscreen also uses this varariable.
@@ -353,4 +353,45 @@ function extract() {
   esac
 }
 alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
+
+if [ `uname` = "Darwin" ]; then
+    export __CF_USER_TEXT_ENCODING="0x1F5:0x08000100:14"
+
+    EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
+    export EDITOR
+    alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
+
+    export _JAVA_OPTIONS='-Dfile.encoding=UTF-8'
+fi
+
+function tmux_set_color {
+    if [ -z "$SSH_CONNECTION" ]; then
+        tmux set -t: status-bg                colour64
+        tmux set -t: pane-active-border-fg    colour64
+        tmux set -t: pane-border-fg           colour238
+        tmux set -t: window-status-current-bg colour22
+    else
+        tmux set -t: status-bg                colour30
+        tmux set -t: pane-active-border-fg    colour30
+        tmux set -t: pane-border-fg           colour238
+        tmux set -t: window-status-current-bg colour18
+    fi
+}
+
+function tmux_on_login {
+    # NOTE:
+    # Redirecting output of tmux to somewhere,
+    # such as "tmux ls > /dev/null", will never return on some system!
+    # You can use "| true" instead of "> /dev/null" to discard output.
+    tmux_set_color | true
+}
+
+if [[ -n "$TMUX" ]]; then
+    tmux_on_login
+fi
+
+## load user .zshrc configuration file
+#
+[ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
+
 
