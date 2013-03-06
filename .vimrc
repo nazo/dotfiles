@@ -128,6 +128,8 @@ Bundle '2072/PHP-Indenting-for-VIm'
 
 Bundle 'mrtazz/simplenote.vim'
 
+Bundle 'kana/vim-fakeclip'
+
 filetype plugin indent on     " required!
 "
 " Brief help
@@ -186,6 +188,7 @@ set backspace=indent,eol,start
 set showmatch
 set wildmenu
 set formatoptions+=mM
+set clipboard=unnamed
 
 " tab
 "-----------------------------------------------------------
@@ -484,7 +487,6 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vspli
 " ESCキーを2回押すと終了する
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
-
 
 if filereadable(expand('~/.vimrc.mine'))
   source ~/.vimrc.mine
