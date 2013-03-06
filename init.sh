@@ -21,3 +21,20 @@ tar zxvf php_manual_ja.tar.gz
 rm php_manual_ja.tar.gz
 cd ../../..
 
+mkdir tmp
+cd tmp
+
+if [ `uname` = "Darwin" ]; then
+    #mac用のコード
+    git clone https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard.git
+    cd tmux-MacOSX-pasteboard
+    make reattach-to-user-namespace
+    cp reattach-to-user-namespace ~/bin
+    cd ..
+
+    echo 'set-option -g default-command "reattach-to-user-namespace -l zsh"' >> ../.tmux.conf
+fi
+
+cd ..
+rm -rf tmp
+
