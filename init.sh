@@ -26,13 +26,13 @@ cd tmp
 
 if [ `uname` = "Darwin" ]; then
     #mac用のコード
+    mkdir ~/bin
+
     git clone https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard.git
     cd tmux-MacOSX-pasteboard
     make reattach-to-user-namespace
     cp reattach-to-user-namespace ~/bin
     cd ..
-
-    echo 'set-option -g default-command "reattach-to-user-namespace -l zsh"' >> ../.tmux.conf
 fi
 
 cd ..
