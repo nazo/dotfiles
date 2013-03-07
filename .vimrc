@@ -127,8 +127,12 @@ Bundle 'scrooloose/syntastic'
 Bundle '2072/PHP-Indenting-for-VIm'
 
 Bundle 'mrtazz/simplenote.vim'
-
 Bundle 'kana/vim-fakeclip'
+Bundle 'msanders/cocoa.vim'
+Bundle 'taglist.vim'
+Bundle 'The-NERD-tree'
+Bundle 'The-NERD-Commenter'
+
 
 filetype plugin indent on     " required!
 "
@@ -490,6 +494,14 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vspli
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
 
+" taglist
+let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
+let Tlist_Show_One_File = 1
+let Tlist_Use_Right_Window = 0
+let Tlist_Exit_OnlyWindow = 1
+nnoremap <silent> ,t :<C-u>Tlist<CR>
+
+" local config
 if filereadable(expand('~/.vimrc.mine'))
   source ~/.vimrc.mine
 endif
