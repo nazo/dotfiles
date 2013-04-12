@@ -302,7 +302,6 @@ export PATH=$HOME/bin:$HOME/flex_sdk/bin:$HOME/opt/tig:$HOME/app/termtter/bin:$H
 export EDITOR=/usr/bin/vim
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
 
-
 is_screen_running() {
     # tscreen also uses this varariable.
     [ ! -z "$WINDOW" ]

@@ -37,6 +37,12 @@ if [ `uname` = "Darwin" ]; then
     cp ../tmux-pbcopy ~/bin
 fi
 
+git clone https://github.com/rkitover/vimpager.git
+mv vimpager/vimpager ~/bin
+mv vimpager/vimcat ~/bin
+chmod +x ~/bin/vimpager
+chmod +x ~/bin/vimcat
+
 cd ..
 rm -rf tmp
 
