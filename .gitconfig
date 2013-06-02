@@ -16,12 +16,12 @@
 	email = takuya0219@gmail.com
 
 [http]
-	sslcainfo = /Users/sato/DigiCertHighAssuranceEVRootCA.crt
+	sslcainfo = /Users/nazo/DigiCertHighAssuranceEVRootCA.crt
 [core]
-	excludesfile = /Users/sato/.gitignore_global
+	excludesfile = /Users/nazo/.gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
@@ -33,4 +33,5 @@
 [branch]
 	autosetuprebase = always
 [push]
-	default = simple
+	default = current
+

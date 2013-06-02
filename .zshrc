@@ -385,9 +385,9 @@ function tmux_on_login {
     tmux_set_color | true
 }
 
-if [[ -n "$TMUX" ]]; then
-    tmux_on_login
-fi
+#if [[ -n "$TMUX" ]]; then
+#    tmux_on_login
+#fi
 
 ## load user .zshrc configuration file
 #
