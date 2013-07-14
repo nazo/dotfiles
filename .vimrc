@@ -1,3 +1,6 @@
+set rtp+=~/dotfiles/.vim/vundle.git/
+call vundle#rc()
+
 " 文字コードの自動認識
 if &encoding !=# 'utf-8'
   set encoding=japan
@@ -133,6 +136,7 @@ Bundle 'taglist.vim'
 Bundle 'The-NERD-tree'
 Bundle 'The-NERD-Commenter'
 
+Bundle 'tsukkee/unite-tag'
 
 filetype plugin indent on     " required!
 "
@@ -328,7 +332,7 @@ endif
 set completeopt=menuone
 
 "起動時に有効
-let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_at_startup = 0
 "ポップアップメニューで表示される候補の数。初期値は100
 let g:neocomplcache_max_list = 20
 "自動補完を行う入力数を設定。初期値は2
@@ -409,7 +413,6 @@ let g:neocomplcache_dictionary_filetype_lists = {
   \ 'default' : '',
   \ 'php' : $HOME . '/.vim/dict/php.dict',
   \ 'ctp' : $HOME . '/.vim/dict/php.dict',
-  \ 'twig' : $HOME . '/.vim/dict/twig.dict',
   \ 'vimshell' : $HOME . '/.vimshell/command-history',
   \ }
 
@@ -495,7 +498,6 @@ au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
 
 " taglist
-let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
 let Tlist_Show_One_File = 1
 let Tlist_Use_Right_Window = 0
 let Tlist_Exit_OnlyWindow = 1

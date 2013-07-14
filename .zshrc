@@ -266,14 +266,14 @@ function ssh_screen(){
 #fi
 
 if [ $TERM = screen ]; then
-    function mosh_tmux() {
-        tmux new-window -n $@ "exec mosh $@"
-    }
-    alias mosh=mosh_tmux
-    function ssh_tmux() {
-        tmux new-window -n $@ "exec ssh $@"
-    }
-    alias ssh=ssh_tmux
+#    function mosh_tmux() {
+#        tmux new-window -n $@ "exec mosh $@"
+#    }
+#    alias mosh=mosh_tmux
+#    function ssh_tmux() {
+#        tmux new-window -n $@ "exec ssh $@"
+#    }
+#    alias ssh=ssh_tmux
 fi
 
 autoload -U url-quote-magic
@@ -327,14 +327,14 @@ resolve_alias() {
 }
 
 
-if ! is_screen_or_tmux_running && shell_has_started_interactively; then
-    for cmd in tmux tscreen screen; do
-        if whence $cmd >/dev/null 2>/dev/null; then
-            $(resolve_alias "$cmd")
-            break
-        fi
-    done
-fi
+#if ! is_screen_or_tmux_running && shell_has_started_interactively; then
+#    for cmd in tmux tscreen screen; do
+#        if whence $cmd >/dev/null 2>/dev/null; then
+#            $(resolve_alias "$cmd")
+#            break
+#        fi
+#    done
+#fi
 
 function extract() {
   case $1 in
