@@ -2,7 +2,7 @@ set rtp+=~/dotfiles/neobundle.vim
 
 if has('vim_starting')
   set runtimepath+=~/dotfiles/neobundle.vim
-  call neobundle#rc(expand('~/.vim/'))
+  call neobundle#rc(expand('~/.vim/bundle/'))
 endif
 
 " 文字コードの自動認識
