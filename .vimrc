@@ -1,5 +1,9 @@
-set rtp+=~/dotfiles/.vim/vundle.git/
-call vundle#rc()
+set rtp+=~/dotfiles/neobundle.vim
+
+if has('vim_starting')
+  set runtimepath+=~/dotfiles/neobundle.vim
+  call neobundle#rc(expand('~/.vim/'))
+endif
 
 " 文字コードの自動認識
 if &encoding !=# 'utf-8'
@@ -66,77 +70,74 @@ set nocompatible
 
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
 " let Vundle manage Vundle
 " required!
-Bundle 'gmarik/vundle'
+NeoBundle 'gmarik/vundle'
 
 " My Bundles here:
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-Bundle 'rails.vim'
+NeoBundle 'L9'
+NeoBundle 'FuzzyFinder'
+NeoBundle 'rails.vim'
 
-Bundle 'haml.zip'
-Bundle 'git-commit'
-Bundle 'YankRing.vim'
-Bundle 'EasyMotion'
-Bundle 'vimwiki'
+NeoBundle 'haml.zip'
+NeoBundle 'git-commit'
+NeoBundle 'YankRing.vim'
+NeoBundle 'EasyMotion'
+NeoBundle 'vimwiki'
 
-Bundle 'quickrun'
-Bundle 'git://github.com/taq/vim-git-branch-info.git'
-Bundle 'matchit.zip'
-Bundle 'mru.vim'
-Bundle 'svn-diff.vim'
-Bundle 'thinca/vim-ref'
+NeoBundle 'quickrun'
+NeoBundle 'git://github.com/taq/vim-git-branch-info.git'
+NeoBundle 'matchit.zip'
+NeoBundle 'mru.vim'
+NeoBundle 'svn-diff.vim'
+NeoBundle 'thinca/vim-ref'
 
-Bundle 'newspaper.vim'
-Bundle 'xoria256.vim'
+NeoBundle 'newspaper.vim'
+NeoBundle 'xoria256.vim'
 
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'motemen/git-vim'
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'motemen/git-vim'
 
-Bundle 'tsukkee/unite-help'
+NeoBundle 'tsukkee/unite-help'
 
-Bundle 'kana/vim-textobj-user'
-Bundle 'kana/vim-fakeclip'
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'kana/vim-fakeclip'
 
-Bundle 'Shougo/neocomplcache'
-Bundle 'Shougo/vimfiler'
-Bundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/vimfiler'
+NeoBundle 'Shougo/unite.vim'
 
-Bundle 'h1mesuke/vim-alignta'
-Bundle 'h1mesuke/unite-outline'
+NeoBundle 'h1mesuke/vim-alignta'
+NeoBundle 'h1mesuke/unite-outline'
 
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-cucumber'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'tpope/vim-cucumber'
+NeoBundle 'tpope/vim-endwise'
+NeoBundle 'tpope/vim-surround'
 
-Bundle 'ecomba/vim-ruby-refactoring'
-Bundle 'nelstrom/vim-textobj-rubyblock'
+NeoBundle 'ecomba/vim-ruby-refactoring'
+NeoBundle 'nelstrom/vim-textobj-rubyblock'
 
-Bundle 'altercation/vim-colors-solarized'
+NeoBundle 'altercation/vim-colors-solarized'
 
-Bundle 'kchmck/vim-coffee-script'
+NeoBundle 'kchmck/vim-coffee-script'
 
-Bundle 'mattn/gist-vim'
-Bundle 'Shougo/vimproc'
-Bundle 'Shougo/vimshell'
+NeoBundle 'mattn/gist-vim'
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimshell'
 
-Bundle 'scrooloose/syntastic'
+NeoBundle 'scrooloose/syntastic'
 
-Bundle '2072/PHP-Indenting-for-VIm'
+NeoBundle '2072/PHP-Indenting-for-VIm'
 
-Bundle 'mrtazz/simplenote.vim'
-Bundle 'kana/vim-fakeclip'
-Bundle 'msanders/cocoa.vim'
-Bundle 'taglist.vim'
-Bundle 'The-NERD-tree'
-Bundle 'The-NERD-Commenter'
+NeoBundle 'mrtazz/simplenote.vim'
+NeoBundle 'kana/vim-fakeclip'
+NeoBundle 'msanders/cocoa.vim'
+NeoBundle 'taglist.vim'
+NeoBundle 'The-NERD-tree'
+NeoBundle 'The-NERD-Commenter'
 
-Bundle 'tsukkee/unite-tag'
+NeoBundle 'tsukkee/unite-tag'
 
 filetype plugin indent on     " required!
 "
