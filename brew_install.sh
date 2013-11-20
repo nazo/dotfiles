@@ -17,4 +17,5 @@ brew install tig
 brew install zsh
 brew install mobile-shell
 brew install phpenv
+brew install reattach-to-user-namespace
 

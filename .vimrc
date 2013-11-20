@@ -81,7 +81,6 @@ NeoBundle 'rails.vim'
 
 NeoBundle 'haml.zip'
 NeoBundle 'git-commit'
-NeoBundle 'YankRing.vim'
 NeoBundle 'EasyMotion'
 NeoBundle 'vimwiki'
 
@@ -138,8 +137,15 @@ NeoBundle 'The-NERD-tree'
 NeoBundle 'The-NERD-Commenter'
 
 NeoBundle 'tsukkee/unite-tag'
+NeoBundle 'derekwyatt/vim-scala'
+
+NeoBundle 'vim-jp/vital.vim'
+NeoBundle 'thinca/vim-ref'
 
 filetype plugin indent on     " required!
+
+NeoBundleCheck
+
 "
 " Brief help
 "

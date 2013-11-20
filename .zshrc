@@ -284,21 +284,13 @@ zle -N self-insert url-quote-magic
 # bashcompinit
 # source $HOME/dotfiles/git-completion.bash
 
-#sabel
-if [ -z "$SABEL_HOME" ] ; then
-  SABEL_HOME="/opt/php5.2/lib/php/Sabel"
-fi
-
-if [ -z "$ETHNA_HOME" ] ; then
-  ETHNA_HOME="/opt/php5.2/lib/php/Ethna"
-fi
-
 # bindkey -v
 stty stop undef
 
 export JAVA_HOME=/usr/lib/jvm/java-6-sun
 export JRUBY_HOME=/opt/gae-j
-export PATH=$HOME/bin:$HOME/flex_sdk/bin:$HOME/opt/tig:$HOME/app/termtter/bin:$HOME/.cabal/bin:$JRUBY_HOME/bin:$JAVA_HOME/bin:/opt/local/bin:/opt/bin:/opt/screen/bin:/opt/zsh/bin:/opt/gae-j/bin:/usr/local/google_appengine:/opt/ctags/bin:$PATH:/usr/gnu/bin:/usr/local/bin:/sbin:/usr/sbin
+export PATH=/usr/local/heroku/bin:$HOME/bin:$HOME/flex_sdk/bin:$HOME/opt/tig:$HOME/app/termtter/bin:$HOME/.cabal/bin:$HOME/.composer/vendor/bin:$JRUBY_HOME/bin:$JAVA_HOME/bin:/opt/local/bin:/opt/bin:/opt/screen/bin:/opt/zsh/bin:/opt/gae-j/bin:/usr/local/google_appengine:/opt/ctags/bin:$PATH:/usr/gnu/bin:/usr/local/bin:/sbin:/usr/sbin
+
 export EDITOR=/usr/bin/vim
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
 
@@ -389,8 +381,9 @@ function tmux_on_login {
 #    tmux_on_login
 #fi
 
+alias tmux='tmuxx'
+
 ## load user .zshrc configuration file
 #
 [ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
-
 
