@@ -513,6 +513,10 @@ let Tlist_Use_Right_Window = 0
 let Tlist_Exit_OnlyWindow = 1
 nnoremap <silent> ,t :<C-u>Tlist<CR>
 
+" tagbar
+nnoremap <silent> <F9> :TagbarToggle<CR>
+let g:tagbar_ctags_bin = $HOME . '/opt/ctags/bin/ctags'
+
 " local config
 if filereadable(expand('~/.vimrc.mine'))
   source ~/.vimrc.mine

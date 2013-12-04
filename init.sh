@@ -4,13 +4,15 @@ for dotfile in .?*
 do
     if [ $dotfile != '..' ] && [ $dotfile != '.git' ]
     then
-        ln -Fis "$PWD/$dotfile" $HOME
+        ln -Fs "$PWD/$dotfile" $HOME
     fi
 done
 
 git submodule init
 git submodule update
+git submodule foreach 'git checkout master; git pull'
 mkdir .vim/bundle
+neobundle.vim/bin/neoinstall
 
 cd .vim/doc/download
 wget http://jp.php.net/get/php_manual_ja.tar.gz/from/this/mirror
@@ -19,7 +21,7 @@ tar zxvf php_manual_ja.tar.gz
 rm php_manual_ja.tar.gz
 cd ../../..
 
-mkdir ~/bin
+mkdir ${HOME}/bin
 
 mkdir tmp
 cd tmp
@@ -42,6 +44,9 @@ mv vimpager/vimcat ~/bin
 git clone https://github.com/erikw/tmux-powerline.git
 
 cd ..
+
+sh ctags.sh
+
 rm -rf tmp
 
 cp tmuxx ~/bin

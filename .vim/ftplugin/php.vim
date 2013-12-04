@@ -217,3 +217,6 @@ endfunction
 
 let g:ref_phpmanual_path = $HOME.'/.vim/doc/download/php-chunked-xhtml'
 
+let g:tagbar_phpctags_bin = $HOME.'/.vim/bundle/tagbar-phpctags/bin/phpctags'
+let g:tagbar_phpctags_memory_limit = '512M'
+
