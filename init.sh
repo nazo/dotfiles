@@ -39,6 +39,8 @@ git clone https://github.com/rkitover/vimpager.git
 mv vimpager/vimpager ~/bin
 mv vimpager/vimcat ~/bin
 
+git clone https://github.com/erikw/tmux-powerline.git
+
 cd ..
 rm -rf tmp
 

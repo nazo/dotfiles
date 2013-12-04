@@ -138,7 +138,6 @@ alias du="du -h"
 alias df="df -h"
 
 alias su="su -l"
-alias grep="grep -nri"
 
 alias gs="git svn"
 alias gsup="git stash;git svn rebase;git stash pop;"
@@ -387,3 +386,5 @@ alias tmux='tmuxx'
 #
 [ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
 
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

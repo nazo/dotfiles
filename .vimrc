@@ -141,6 +141,7 @@ NeoBundle 'derekwyatt/vim-scala'
 
 NeoBundle 'vim-jp/vital.vim'
 NeoBundle 'thinca/vim-ref'
+NeoBundle 'leafgarland/typescript-vim'
 
 filetype plugin indent on     " required!
 
