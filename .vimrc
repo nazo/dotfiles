@@ -132,7 +132,6 @@ NeoBundle '2072/PHP-Indenting-for-VIm'
 NeoBundle 'mrtazz/simplenote.vim'
 NeoBundle 'kana/vim-fakeclip'
 NeoBundle 'msanders/cocoa.vim'
-NeoBundle 'taglist.vim'
 NeoBundle 'The-NERD-tree'
 NeoBundle 'The-NERD-Commenter'
 
@@ -506,12 +505,6 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vspli
 " ESCキーを2回押すと終了する
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
-
-" taglist
-let Tlist_Show_One_File = 1
-let Tlist_Use_Right_Window = 0
-let Tlist_Exit_OnlyWindow = 1
-nnoremap <silent> ,t :<C-u>Tlist<CR>
 
 " tagbar
 nnoremap <silent> <F9> :TagbarToggle<CR>
