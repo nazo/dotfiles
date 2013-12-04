@@ -142,6 +142,8 @@ NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'vim-jp/vital.vim'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'leafgarland/typescript-vim'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'vim-scripts/tagbar-phpctags'
 
 filetype plugin indent on     " required!
 
