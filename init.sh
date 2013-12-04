@@ -14,6 +14,8 @@ git submodule foreach 'git checkout master; git pull'
 mkdir .vim/bundle
 neobundle.vim/bin/neoinstall
 
+chmod 755 .vim/bundle/tagbar-phpctags/bin/phpctags
+
 cd .vim/doc/download
 wget http://jp.php.net/get/php_manual_ja.tar.gz/from/this/mirror
 mv mirror php_manual_ja.tar.gz
