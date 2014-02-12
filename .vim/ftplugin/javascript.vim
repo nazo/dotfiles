@@ -1,6 +1,6 @@
 set tabstop=4
 set shiftwidth=4
-set noexpandtab
+set expandtab
 
 " ファイルタイプがJavaScriptのファイルを保存すると即座にjslでチェックを行う
 au FileType javascript set makeprg=jsl\ -conf\ /home/nazo/opt/jsl/jsl.conf\ -nologo\ -nofilelisting\ -nosummary\ -nocontext\ -process\ %

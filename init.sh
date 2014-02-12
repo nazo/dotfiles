@@ -25,6 +25,13 @@ cd ../../..
 
 mkdir ${HOME}/bin
 
+if [ `uname` = "Darwin" ]; then
+    #mac用のコード(Homebrew)
+    ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+    brew doctor
+    brew bundle
+fi
+
 mkdir tmp
 cd tmp
 

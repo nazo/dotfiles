@@ -10,10 +10,11 @@
     ci = commit -av
     df = diff
     br = branch
+    mg = merge --no-ff
 
 [user]
-	name = takuya sato
-	email = takuya0219@gmail.com
+    name = takuya sato
+    email = takuya0219@gmail.com
 
 [http]
 #	sslcainfo = /Users/nazo/DigiCertHighAssuranceEVRootCA.crt
@@ -31,7 +32,6 @@
     generic = G move-last-line
 
 [branch]
-	autosetuprebase = always
+    autosetuprebase = always
 [push]
-	default = current
-
+    default = current

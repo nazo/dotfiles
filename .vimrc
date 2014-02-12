@@ -144,6 +144,11 @@ NeoBundle 'leafgarland/typescript-vim'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'vim-scripts/tagbar-phpctags'
 
+NeoBundle 'mattn/webapi-vim'
+NeoBundle 'mattn/excelview-vim'
+NeoBundle 'vim-flake8'
+NeoBundle 'itchyny/lightline.vim'
+
 filetype plugin indent on     " required!
 
 NeoBundleCheck

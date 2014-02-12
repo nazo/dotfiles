@@ -5,3 +5,5 @@ setlocal shiftwidth=4
 
 setlocal nofoldenable
 
+autocmd BufWrite *.py :call Flake8()
+
