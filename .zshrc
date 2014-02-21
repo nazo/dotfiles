@@ -176,7 +176,7 @@ esac
 unset LSCOLORS
 case "${TERM}" in
 xterm)
-    export TERM=xterm-color
+    export TERM=xterm-256color
     ;;
 kterm)
     export TERM=kterm-color
@@ -191,6 +191,8 @@ cons25)
         'di=;32;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
     ;;
 esac
+
+export TERM=xterm-256color
 
 # set terminal title including current directory
 #
@@ -380,7 +382,7 @@ function tmux_on_login {
 #    tmux_on_login
 #fi
 
-alias tmux='tmuxx'
+alias tmux='TERM=xterm-256color tmuxx'
 
 ## load user .zshrc configuration file
 #
