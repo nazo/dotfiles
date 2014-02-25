@@ -24,7 +24,7 @@ setlocal makeprg=php\ -l\ %
 setlocal errorformat=%m\ in\ %f\ on\ line\ %l
 
 " Switch syntax highlighting on, if it was not
-syntax on
+"syntax on
 
 " }}} Settings
 
