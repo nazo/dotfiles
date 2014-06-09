@@ -75,8 +75,6 @@ filetype off                   " required!
 NeoBundle 'gmarik/vundle'
 
 " My Bundles here:
-NeoBundle 'L9'
-NeoBundle 'FuzzyFinder'
 NeoBundle 'rails.vim'
 
 NeoBundle 'haml.zip'
@@ -148,6 +146,7 @@ NeoBundle 'mattn/webapi-vim'
 NeoBundle 'mattn/excelview-vim'
 NeoBundle 'vim-flake8'
 NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'mattn/benchvimrc-vim'
 
 filetype plugin indent on     " required!
 
@@ -511,9 +510,21 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vspli
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
 
+" syntastic
+let g:syntastic_mode_map = { 'mode': 'active',
+  \ 'active_filetypes': [],
+  \ 'passive_filetypes': ['html', 'php'] }
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_javascript_checker = 'jshint'
+nnoremap <C-l> :SyntasticCheck<CR>
+
 " tagbar
 nnoremap <silent> <F9> :TagbarToggle<CR>
 let g:tagbar_ctags_bin = $HOME . '/opt/ctags/bin/ctags'
+
+if $GOROOT != ''
+  set rtp+=$GOROOT/misc/vim
+endif
 
 set t_Co=256
 
