@@ -24,6 +24,7 @@ rm php_manual_ja.tar.gz
 cd ../../..
 
 mkdir ${HOME}/bin
+mkdir ${HOME}/go
 
 if [ `uname` = "Darwin" ]; then
     #mac用のコード(Homebrew)
