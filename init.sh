@@ -37,12 +37,6 @@ cd tmp
 
 if [ `uname` = "Darwin" ]; then
     #mac用のコード
-    git clone https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard.git
-    cd tmux-MacOSX-pasteboard
-    make reattach-to-user-namespace
-    cp reattach-to-user-namespace ~/bin
-    cd ..
-
     cp ../tmux-pbcopy ~/bin
 fi
 

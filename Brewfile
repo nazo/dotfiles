@@ -25,6 +25,7 @@ install node
 install python3
 install wine
 install winetricks
+install reattach-to-user-namespace
 cask install boot2docker
 
 cleanup
