@@ -288,10 +288,16 @@ zle -N self-insert url-quote-magic
 # bindkey -v
 stty stop undef
 
-export GOPATH=$HOME/go
+
 export JAVA_HOME=/usr/lib/jvm/java-6-sun
 export JRUBY_HOME=/opt/gae-j
-export PATH=$GOROOT/bin:$GOPATH/bin:/usr/local/heroku/bin:$HOME/bin:$HOME/flex_sdk/bin:$HOME/opt/tig:$HOME/app/termtter/bin:$HOME/.cabal/bin:$HOME/.composer/vendor/bin:$JRUBY_HOME/bin:$JAVA_HOME/bin:/opt/local/bin:/opt/bin:/opt/screen/bin:/opt/zsh/bin:/opt/gae-j/bin:/usr/local/google_appengine:/opt/ctags/bin:/usr/gnu/bin:/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:$PATH
+export PATH=/usr/local/heroku/bin:$HOME/bin:$HOME/flex_sdk/bin:$HOME/opt/tig:$HOME/app/termtter/bin:$HOME/.cabal/bin:$HOME/.composer/vendor/bin:$JRUBY_HOME/bin:$JAVA_HOME/bin:/opt/local/bin:/opt/bin:/opt/screen/bin:/opt/zsh/bin:/opt/gae-j/bin:/usr/local/google_appengine:/opt/ctags/bin:/usr/gnu/bin:/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:$PATH
+
+if [ -x "`which go`" ]; then
+    export GOROOT=`go env GOROOT`
+    export GOPATH=$HOME/go
+    export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+fi
 
 export EDITOR=/usr/bin/vim
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi

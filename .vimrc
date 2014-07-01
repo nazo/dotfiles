@@ -513,7 +513,7 @@ au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
 " syntastic
 let g:syntastic_mode_map = { 'mode': 'active',
   \ 'active_filetypes': [],
-  \ 'passive_filetypes': ['html', 'php'] }
+  \ 'passive_filetypes': ['html', 'php', 'python'] }
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_javascript_checker = 'jshint'
 nnoremap <C-l> :SyntasticCheck<CR>
@@ -524,6 +524,7 @@ let g:tagbar_ctags_bin = $HOME . '/opt/ctags/bin/ctags'
 
 if $GOROOT != ''
   set rtp+=$GOROOT/misc/vim
+  exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
 endif
 
 set t_Co=256
