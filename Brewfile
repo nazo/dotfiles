@@ -1,7 +1,7 @@
 update
 
 tap caskroom/cask
-tap lestrrat/homebrew-peco
+tap peco/peco
 
 install brew-cask
 install jq
@@ -29,6 +29,7 @@ install winetricks
 install reattach-to-user-namespace
 install peco
 install go
+install the_silver_searcher
 cask install boot2docker
 
 cleanup

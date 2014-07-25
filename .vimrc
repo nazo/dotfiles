@@ -148,6 +148,9 @@ NeoBundle 'vim-flake8'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'mattn/benchvimrc-vim'
 
+NeoBundle 'wting/rust.vim'
+NeoBundle 'dgryski/vim-godef'
+
 filetype plugin indent on     " required!
 
 NeoBundleCheck
@@ -345,7 +348,9 @@ endif
 set completeopt=menuone
 
 "起動時に有効
-let g:neocomplcache_enable_at_startup = 0
+let g:acp_enableAtStartup = 0
+" Use neocomplcache.
+let g:neocomplcache_enable_at_startup = 1
 "ポップアップメニューで表示される候補の数。初期値は100
 let g:neocomplcache_max_list = 20
 "自動補完を行う入力数を設定。初期値は2
@@ -382,7 +387,6 @@ let g:neocomplcache_temporary_dir = $HOME.'/.neocon'
 "シンタックス補完を無効に
 let g:neocomplcache_plugin_disable = {
 \ 'tags_complete' : 1,
-\ 'omni_complete' : 1,
 \ 'syntax_complete' : 1,
 \ }
 
@@ -509,6 +513,9 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vspli
 " ESCキーを2回押すと終了する
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
+
+let g:unite_data_directory = $HOME . '/.unite'
+let g:unite_abbr_highlight = 'Normal'
 
 " syntastic
 let g:syntastic_mode_map = { 'mode': 'active',
