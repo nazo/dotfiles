@@ -150,6 +150,8 @@ NeoBundle 'mattn/benchvimrc-vim'
 
 NeoBundle 'wting/rust.vim'
 NeoBundle 'dgryski/vim-godef'
+NeoBundle 'aklt/plantuml-syntax'
+NeoBundle 'Shougo/neomru.vim'
 
 filetype plugin indent on     " required!
 
@@ -231,6 +233,7 @@ set backup
 set backupdir=~/.vimbackup
 set swapfile
 set directory=~/.vimswp
+set undodir=~/.vimundo
 
 " タブページを常に表示
 set showtabline=2
