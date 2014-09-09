@@ -100,7 +100,7 @@ NeoBundle 'tsukkee/unite-help'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-fakeclip'
 
-NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/unite.vim'
 
@@ -120,7 +120,14 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'kchmck/vim-coffee-script'
 
 NeoBundle 'mattn/gist-vim'
-NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimproc.vim', {
+      \ 'build' : {
+      \     'windows' : 'tools\\update-dll-mingw',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
 NeoBundle 'Shougo/vimshell'
 
 NeoBundle 'scrooloose/syntastic'
@@ -152,6 +159,20 @@ NeoBundle 'wting/rust.vim'
 NeoBundle 'dgryski/vim-godef'
 NeoBundle 'aklt/plantuml-syntax'
 NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'Yggdroot/indentLine'
+
+NeoBundleLazy "jmcantrell/vim-virtualenv", {
+      \ "autoload": {
+      \   "filetypes": ["python", "python3", "djangohtml"]
+      \ }}
+NeoBundleLazy "davidhalter/jedi-vim", {
+      \ "autoload": {
+      \   "filetypes": ["python", "python3", "djangohtml"],
+      \ },
+      \ "build": {
+      \   "mac": "pip install jedi",
+      \   "unix": "pip install jedi",
+      \ }}
 
 filetype plugin indent on     " required!
 
@@ -343,151 +364,14 @@ if has('win32') + has('win64')
   set runtimepath+=$HOME/.vim/after
 endif
 
-"C-n補完の対象(カレントバッファ、タグ、辞書) :help 'complete'
-"neocomplcacheには影響しない？
-"neocomplcacheには影響しないそうなのでコメントアウト
-"set complete=.,w,b,u,k,t
 "補完ウィンドウの設定 :help completeopt
 set completeopt=menuone
-
-"起動時に有効
-let g:acp_enableAtStartup = 0
-" Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
-"ポップアップメニューで表示される候補の数。初期値は100
-let g:neocomplcache_max_list = 20
-"自動補完を行う入力数を設定。初期値は2
-let g:neocomplcache_auto_completion_start_length = 2
-"手動補完時に補完を行う入力数を制御。値を小さくすると文字の削除時に重くなる
-let g:neocomplcache_manual_completion_start_length = 3
-"バッファや辞書ファイル中で、補完の対象となるキーワードの最小長さ。初期値は4。
-let g:neocomplcache_min_keyword_length = 4
-"シンタックスファイル中で、補完の対象となるキーワードの最小長さ。初期値は4。
-let g:neocomplcache_min_syntax_length = 4
-"1:補完候補検索時に大文字・小文字を無視する
-let g:neocomplcache_enable_ignore_case = 1
-"入力に大文字が入力されている場合、大文字小文字の区別をする
-let g:neocomplcache_enable_smart_case = 1
-";で英数字候補選択できるようにしたかったけど動かない
-"動かないのは仕様のようです。コメントアウト
-"let g:neocomplcache_quick_match_patterns = {
-"  \ 'default' : ';'
-"  \ }
-"大文字小文字を区切りとしたあいまい検索を行うかどうか。
-"DTと入力するとD*T*と解釈され、DateTime等にマッチする。
-let g:neocomplcache_enable_camel_case_completion = 0
-"アンダーバーを区切りとしたあいまい検索を行うかどうか。
-"m_sと入力するとm*_sと解釈され、mb_substr等にマッチする。
-let g:neocomplcache_enable_underbar_completion = 0
-
-"neocomplcacheを自動的にロックするバッファ名のパターンを指定。
-"ku.vimやfuzzyfinderなど、neocomplcacheと相性が悪いプラグインを使用する場合に設定。
-"let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-
-"キャッシュディレクトリの場所
-let g:neocomplcache_temporary_dir = $HOME.'/.neocon'
-
-"シンタックス補完を無効に
-let g:neocomplcache_plugin_disable = {
-\ 'tags_complete' : 1,
-\ 'syntax_complete' : 1,
-\ }
-
-"補完するためのキーワードパターンを指定
-if !exists('g:neocomplcache_keyword_patterns')
-  let g:neocomplcache_keyword_patterns = {}
-endif
-"日本語を補完候補として取得しないようにする
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-"twigはhtmlと同じに
-let g:neocomplcache_keyword_patterns['twig'] = '</\?\%([[:alnum:]_:-]\+\s*\)\?\%(/\?>\)\?\|&\h\%(\w*;\)\?\|\h[[:alnum:]_-]*="\%([^"]*"\?\)\?\|\h[[:alnum:]_:-]*'
-
-"関数を補完するための区切り文字パターン
-if !exists('g:neocomplcache_delimiter_patterns')
-  let g:neocomplcache_delimiter_patterns = {}
-endif
-let g:neocomplcache_delimiter_patterns['php'] = ['->', '::', '\']
-
-"カーソルより後のキーワードパターンを認識。
-"h|geとなっている状態(|はカーソル)で、hogeを補完したときに後ろのキーワードを認識してho|geと補完する機能。
-"修正するときにかなり便利。
-"g:neocomplcache_next_keyword_patternsは分からないときはいじらないほうが良いです。
-if !exists('g:neocomplcache_next_keyword_patterns')
-  let g:neocomplcache_next_keyword_patterns = {}
-endif
-"よく分からない場合は未設定のほうがよいとのことなので、ひとまずコメントアウト
-"let g:neocomplcache_next_keyword_patterns['php'] = '\h\w*>'
-"twigはhtmlと同じに
-let g:neocomplcache_next_keyword_patterns['twig'] = '[[:alnum:]_:-]*>\|[^"]*"'
-
-"ファイルタイプの関連付け
-if !exists('g:neocomplcache_same_filetype_lists')
-  let g:neocomplcache_same_filetype_lists = {}
-endif
-"let g:neocomplcache_same_filetype_lists['ctp'] = 'php'
-"let g:neocomplcache_same_filetype_lists['twig'] = 'html'
-
-"ディクショナリ補完
-"ファイルタイプごとの辞書ファイルの場所
-let g:neocomplcache_dictionary_filetype_lists = {
-  \ 'default' : '',
-  \ 'php' : $HOME . '/.vim/dict/php.dict',
-  \ 'ctp' : $HOME . '/.vim/dict/php.dict',
-  \ 'vimshell' : $HOME . '/.vimshell/command-history',
-  \ }
-
-"タグ補完
-"タグファイルの場所
-augroup SetTagsFile
-  autocmd!
-  autocmd FileType php set tags=$HOME/.vim/tags/php.tags
-augroup END
-"タグ補完の呼び出しパターン
-if !exists('g:neocomplcache_member_prefix_patterns')
-  let g:neocomplcache_member_prefix_patterns = {}
-endif
-let g:neocomplcache_member_prefix_patterns['php'] = '->\|::'
-
-"スニペット補完
-"標準で用意されているスニペットを無効にする。初期化前に設定する
-let g:neocomplcache_snippets_disable_runtime_snippets = 1
-"スニペットファイルの置き場所
-let g:neocomplcache_snippets_dir = $HOME.'/.vim/snippets'
 
 "zencoding連携
 let g:use_zen_complete_tag = 1
 
-"オムニ補完
-augroup SetOmniCompletionSetting
-  autocmd!
-  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType ctp setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType twig setlocal omnifunc=htmlcomplete#CompleteTags
-"  autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
-augroup END
-
-"オムニ補完のパターンを設定
-if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
-endif
-let g:neocomplcache_omni_patterns['twig']= '<[^>]*'
-"let g:neocomplcache_omni_patterns['php'] = '[^. \t]->\h\w*\|\h\w*::'
-
-
-"インクルード補完。よくわからない。初期化のみに留める
-"通常は設定する必要はないらしい。
-"Vim標準のインクルード補完を模倣しているそうなので、そちらを勉強する
-if !exists('g:neocomplcache_include_paths')
-    let g:neocomplcache_include_paths = {}
-endif
-if !exists('g:neocomplcache_include_patterns')
-    let g:neocomplcache_include_patterns = {}
-endif
-if !exists('g:neocomplcache_ctags_arguments_list')
-    let g:neocomplcache_ctags_arguments_list = {}
-endif
+""" indentLine
+let g:indentLine_color_term = 239
 
 """ unite.vim
 " 入力モードで開始する
@@ -506,6 +390,9 @@ nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
 nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 " tab
 nnoremap <silent> ,ut :<C-u>Unite tab<CR>
+
+""" vimfiler
+nnoremap <silent> ,vf :<C-u>VimFiler -split -simple -winwidth=35 -no-quit<CR>
 
 " ウィンドウを分割して開く
 au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
@@ -531,6 +418,108 @@ nnoremap <C-l> :SyntasticCheck<CR>
 " tagbar
 nnoremap <silent> <F9> :TagbarToggle<CR>
 let g:tagbar_ctags_bin = $HOME . '/opt/ctags/bin/ctags'
+
+" jedi
+let s:hooks = neobundle#get_hooks("jedi-vim")
+function! s:hooks.on_source(bundle)
+  " jediにvimの設定を任せると'completeopt+=preview'するので
+  " 自動設定機能をOFFにし手動で設定を行う
+  let g:jedi#auto_vim_configuration = 0
+  " 補完の最初の項目が選択された状態だと使いにくいためオフにする
+  let g:jedi#popup_select_first = 0
+  " quickrunと被るため大文字に変更
+  let g:jedi#rename_command = '<Leader>R'
+  " gundoと被るため大文字に変更 (2013-06-24 10:00 追記）
+  let g:jedi#goto_assignments_command = '<Leader>G'
+  let g:jedi#completions_enabled = 0
+endfunction
+
+"Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+        \ }
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return neocomplete#close_popup() . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplete#close_popup()
+inoremap <expr><C-e>  neocomplete#cancel_popup()
+" Close popup by <Space>.
+"inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
+
+" For cursor moving in insert mode(Not recommended)
+"inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
+"inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
+"inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
+"inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
+" Or set this.
+"let g:neocomplete#enable_cursor_hold_i = 1
+" Or set this.
+"let g:neocomplete#enable_insert_char_pre = 1
+
+" AutoComplPop like behavior.
+"let g:neocomplete#enable_auto_select = 1
+
+" Shell like behavior(not recommended).
+"set completeopt+=longest
+"let g:neocomplete#enable_auto_select = 1
+"let g:neocomplete#disable_auto_complete = 1
+"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType python setlocal omnifunc=jedi#completions
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.python = '\h\w|[^. \t].\w'
+
+" For perlomni.vim setting.
+" https://github.com/c9s/perlomni.vim
+let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+autocmd FileType python setlocal completeopt-=preview
 
 if $GOROOT != ''
   set rtp+=$GOROOT/misc/vim
