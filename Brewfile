@@ -5,7 +5,7 @@ tap lestrrat/homebrew-peco
 
 install brew-cask
 install jq
-install jsl
+install homebrew/binary/jsl
 install lha
 install ctags
 install git
