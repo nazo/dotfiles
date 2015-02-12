@@ -1,7 +1,7 @@
 update
 
 tap caskroom/cask
-tap lestrrat/homebrew-peco
+tap peco/peco
 
 install brew-cask
 install jq
@@ -17,7 +17,6 @@ install wget
 install tig
 install zsh
 install mobile-shell
-install phpenv
 install reattach-to-user-namespace
 install python
 install mysql
@@ -29,6 +28,9 @@ install winetricks
 install reattach-to-user-namespace
 install peco
 install go
+install ag
+install ruby-build
+install rbenv
 cask install boot2docker
 
 cleanup

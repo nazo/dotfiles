@@ -219,6 +219,9 @@ zstyle ':vcs_info:(svn|bzr):*' branchformat '%b:r%r' # new
 zstyle ':vcs_info:bzr:*' use-simple true             # new
 RPROMPT="[%~]%1(v|%F{green}%1v%f|)"
 
+function agvim () {
+  vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
+}
 
 if [ "$TERM" = "screen" ]; then
     # chpwd () { echo -n "#_`dirs`\\" }
@@ -292,6 +295,8 @@ stty stop undef
 export JAVA_HOME=/usr/lib/jvm/java-6-sun
 export JRUBY_HOME=/opt/gae-j
 export PATH=/usr/local/heroku/bin:$HOME/bin:$HOME/flex_sdk/bin:$HOME/opt/tig:$HOME/app/termtter/bin:$HOME/.cabal/bin:$HOME/.composer/vendor/bin:$JRUBY_HOME/bin:$JAVA_HOME/bin:/opt/local/bin:/opt/bin:/opt/screen/bin:/opt/zsh/bin:/opt/gae-j/bin:/usr/local/google_appengine:/opt/ctags/bin:/usr/gnu/bin:/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:$PATH
+
+export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 if [ -x "`which go`" ]; then
     export GOROOT=`go env GOROOT`
@@ -394,6 +399,3 @@ alias tmux='TERM=xterm-256color tmuxx'
 ## load user .zshrc configuration file
 #
 [ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
-
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
