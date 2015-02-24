@@ -160,7 +160,7 @@ NeoBundle 'dgryski/vim-godef'
 NeoBundle 'aklt/plantuml-syntax'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Yggdroot/indentLine'
-NeoBundle 'rking/ag.vim'
+NeoBundle 'nazo/pt.vim'
 
 NeoBundleLazy "jmcantrell/vim-virtualenv", {
       \ "autoload": {
@@ -407,6 +407,29 @@ au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
 
 let g:unite_data_directory = $HOME . '/.unite'
 let g:unite_abbr_highlight = 'Normal'
+
+" カーソル位置の単語をgrep検索
+nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+
+" grep検索結果の再呼出
+nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
+
+" insert modeで開始
+let g:unite_enable_start_insert = 1
+
+" 大文字小文字を区別しない
+let g:unite_enable_ignore_case = 1
+let g:unite_enable_smart_case = 1
+
+" grep検索
+nnoremap <silent> ,g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+
+if executable('pt')
+    let g:unite_source_grep_command = 'pt'
+    let g:unite_source_grep_default_opts = '--nogroup --nocolor'
+    let g:unite_source_grep_recursive_opt = ''
+    let g:unite_source_grep_encoding = 'utf-8'
+endif
 
 " syntastic
 let g:syntastic_mode_map = { 'mode': 'active',

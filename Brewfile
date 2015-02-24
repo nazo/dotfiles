@@ -25,10 +25,9 @@ install node
 install python3
 install wine
 install winetricks
-install reattach-to-user-namespace
 install peco
 install go
-install ag
+install pt
 install ruby-build
 install rbenv
 cask install boot2docker
