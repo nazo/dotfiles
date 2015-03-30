@@ -161,6 +161,9 @@ NeoBundle 'aklt/plantuml-syntax'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'nazo/pt.vim'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'aklt/plantuml-syntax'
+
 
 NeoBundleLazy "jmcantrell/vim-virtualenv", {
       \ "autoload": {
@@ -436,7 +439,6 @@ let g:syntastic_mode_map = { 'mode': 'active',
   \ 'active_filetypes': [],
   \ 'passive_filetypes': ['html', 'php', 'python'] }
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_javascript_checker = 'jshint'
 nnoremap <C-l> :SyntasticCheck<CR>
 
 " tagbar

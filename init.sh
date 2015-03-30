@@ -26,6 +26,8 @@ cd ../../..
 mkdir ${HOME}/bin
 mkdir ${HOME}/go
 
+ln -Fs "$PWD/plantuml" ~/bin
+
 if [ `uname` = "Darwin" ]; then
     #mac用のコード(Homebrew)
     ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
