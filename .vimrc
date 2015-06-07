@@ -163,7 +163,8 @@ NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'nazo/pt.vim'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'aklt/plantuml-syntax'
-
+NeoBundle 'zah/nimrod.vim'
+NeoBundle 'google/vim-colorscheme-primary'
 
 NeoBundleLazy "jmcantrell/vim-virtualenv", {
       \ "autoload": {
