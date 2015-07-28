@@ -114,6 +114,7 @@ NeoBundle 'aklt/plantuml-syntax'
 NeoBundle 'zah/nimrod.vim'
 NeoBundle 'google/vim-colorscheme-primary'
 NeoBundle 'elzr/vim-json'
+NeoBundle 'haya14busa/incsearch.vim'
 
 NeoBundleLazy "jmcantrell/vim-virtualenv", {
       \ "autoload": {
@@ -570,6 +571,11 @@ let g:neocomplete#sources#omni#input_patterns.python = '\h\w|[^. \t].\w'
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+" incsearch.vim
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
 
 autocmd FileType python setlocal completeopt-=preview
 
