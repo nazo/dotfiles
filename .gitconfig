@@ -13,8 +13,8 @@
     mg = merge --no-ff
 
 [user]
-    name =
-    email =
+    name = Takuya Sato
+    email = takuya0219@gmail.com
 
 [http]
 #	sslcainfo = /Users/nazo/DigiCertHighAssuranceEVRootCA.crt

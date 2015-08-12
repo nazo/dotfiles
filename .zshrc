@@ -396,6 +396,9 @@ function tmux_on_login {
 
 alias tmux='TERM=xterm-256color tmuxx'
 
+# zsh-bd
+. $HOME/.zsh/plugins/bd/bd.zsh
+
 ## load user .zshrc configuration file
 #
 [ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
