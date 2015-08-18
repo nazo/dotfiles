@@ -98,7 +98,7 @@ NeoBundle 'vim-scripts/tagbar-phpctags'
 
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'mattn/excelview-vim'
-NeoBundle 'vim-flake8'
+NeoBundle 'nvie/vim-flake8'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'mattn/benchvimrc-vim'
 
@@ -578,6 +578,7 @@ map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
 autocmd FileType python setlocal completeopt-=preview
+autocmd BufWritePost *.py call Flake8()
 
 if $GOROOT != ''
   set rtp+=$GOROOT/misc/vim
