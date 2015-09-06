@@ -12,7 +12,7 @@ git submodule init
 git submodule update
 git submodule foreach 'git checkout master; git pull'
 mkdir .vim/bundle
-neobundle.vim/bin/neoinstall
+neobundle.vim/bin/install.sh
 
 chmod 755 .vim/bundle/tagbar-phpctags/bin/phpctags
 
