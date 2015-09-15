@@ -5,202 +5,112 @@ if has('vim_starting')
   if &compatible
     set nocompatible               " Be iMproved
   endif
-
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
+call plug#begin()
 
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" let Vundle manage Vundle
-" required!
-NeoBundle 'gmarik/vundle'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 
 " My Bundles here:
-NeoBundle 'rails.vim'
+Plug 'rails.vim'
 
-NeoBundle 'haml.zip'
-NeoBundle 'git-commit'
-NeoBundle 'EasyMotion'
-NeoBundle 'vimwiki'
+Plug 'haml.zip'
+Plug 'git-commit'
+Plug 'EasyMotion'
+Plug 'vimwiki'
 
-NeoBundle 'quickrun'
-NeoBundle 'git://github.com/taq/vim-git-branch-info.git'
-NeoBundle 'matchit.zip'
-NeoBundle 'mru.vim'
-NeoBundle 'svn-diff.vim'
-NeoBundle 'thinca/vim-ref'
+Plug 'quickrun'
+Plug 'git://github.com/taq/vim-git-branch-info.git'
+Plug 'matchit.zip'
+Plug 'mru.vim'
+Plug 'svn-diff.vim'
+Plug 'thinca/vim-ref'
 
-NeoBundle 'newspaper.vim'
-NeoBundle 'xoria256.vim'
+Plug 'newspaper.vim'
+Plug 'xoria256.vim'
 
-NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'motemen/git-vim'
+Plug 'vim-ruby/vim-ruby'
+Plug 'motemen/git-vim'
 
-NeoBundle 'tsukkee/unite-help'
+Plug 'tsukkee/unite-help'
 
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'kana/vim-fakeclip'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-fakeclip'
 
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'Shougo/vimfiler'
-NeoBundle 'Shougo/unite.vim'
+Plug 'Shougo/neocomplete.vim'
+Plug 'Shougo/vimfiler'
+Plug 'Shougo/unite.vim'
 
-NeoBundle 'h1mesuke/vim-alignta'
-NeoBundle 'h1mesuke/unite-outline'
+Plug 'h1mesuke/vim-alignta'
+Plug 'h1mesuke/unite-outline'
 
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'tpope/vim-cucumber'
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'tpope/vim-surround'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-cucumber'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-surround'
 
-NeoBundle 'ecomba/vim-ruby-refactoring'
-NeoBundle 'nelstrom/vim-textobj-rubyblock'
+Plug 'ecomba/vim-ruby-refactoring'
+Plug 'nelstrom/vim-textobj-rubyblock'
 
-NeoBundle 'altercation/vim-colors-solarized'
+Plug 'altercation/vim-colors-solarized'
 
-NeoBundle 'kchmck/vim-coffee-script'
+Plug 'kchmck/vim-coffee-script'
 
-NeoBundle 'mattn/gist-vim'
-NeoBundle 'Shougo/vimproc.vim', {
-      \ 'build' : {
-      \     'windows' : 'tools\\update-dll-mingw',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
-NeoBundle 'Shougo/vimshell'
+Plug 'mattn/gist-vim'
+Plug 'Shougo/vimshell'
 
-NeoBundle 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 
-NeoBundle '2072/PHP-Indenting-for-VIm'
+Plug '2072/PHP-Indenting-for-VIm'
 
-NeoBundle 'mrtazz/simplenote.vim'
-NeoBundle 'kana/vim-fakeclip'
-NeoBundle 'msanders/cocoa.vim'
-NeoBundle 'The-NERD-tree'
-NeoBundle 'The-NERD-Commenter'
+Plug 'mrtazz/simplenote.vim'
+Plug 'kana/vim-fakeclip'
+Plug 'msanders/cocoa.vim'
+Plug 'The-NERD-tree'
+Plug 'The-NERD-Commenter'
 
-NeoBundle 'tsukkee/unite-tag'
-NeoBundle 'derekwyatt/vim-scala'
+Plug 'tsukkee/unite-tag'
+Plug 'derekwyatt/vim-scala'
 
-NeoBundle 'vim-jp/vital.vim'
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'leafgarland/typescript-vim'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'vim-scripts/tagbar-phpctags'
+Plug 'vim-jp/vital.vim'
+Plug 'thinca/vim-ref'
+Plug 'leafgarland/typescript-vim'
+Plug 'majutsushi/tagbar'
+Plug 'vim-scripts/tagbar-phpctags'
 
-NeoBundle 'mattn/webapi-vim'
-NeoBundle 'mattn/excelview-vim'
-NeoBundle 'nvie/vim-flake8'
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'mattn/benchvimrc-vim'
+Plug 'mattn/webapi-vim'
+Plug 'mattn/excelview-vim'
+Plug 'nvie/vim-flake8'
+Plug 'itchyny/lightline.vim'
+Plug 'mattn/benchvimrc-vim'
 
-NeoBundle 'wting/rust.vim'
-NeoBundle 'dgryski/vim-godef'
-NeoBundle 'aklt/plantuml-syntax'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'Yggdroot/indentLine'
-NeoBundle 'nazo/pt.vim'
-NeoBundle 'rking/ag.vim'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'aklt/plantuml-syntax'
-NeoBundle 'zah/nimrod.vim'
-NeoBundle 'google/vim-colorscheme-primary'
-NeoBundle 'elzr/vim-json'
-NeoBundle 'haya14busa/incsearch.vim'
+Plug 'wting/rust.vim'
+Plug 'dgryski/vim-godef'
+Plug 'aklt/plantuml-syntax'
+Plug 'Shougo/neomru.vim'
+Plug 'Yggdroot/indentLine'
+Plug 'nazo/pt.vim'
+Plug 'rking/ag.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'aklt/plantuml-syntax'
+Plug 'zah/nimrod.vim'
+Plug 'google/vim-colorscheme-primary'
+Plug 'elzr/vim-json'
+Plug 'davidhalter/jedi-vim'
 
-NeoBundleLazy "jmcantrell/vim-virtualenv", {
-      \ "autoload": {
-      \   "filetypes": ["python", "python3", "djangohtml"]
-      \ }}
-NeoBundleLazy "davidhalter/jedi-vim", {
-      \ "autoload": {
-      \   "filetypes": ["python", "python3", "djangohtml"],
-      \ },
-      \ "build": {
-      \   "mac": "pip install jedi",
-      \   "unix": "pip install jedi",
-      \ }}
-
-" My Bundles here:
-" Refer to |:NeoBundle-examples|.
-" Note: You don't set neobundle setting in .gvimrc!
-
-call neobundle#end()
+" Add plugins to &runtimepath
+call plug#end()
 
 " Required:
 filetype plugin indent on
+set fileencoding=utf-8
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
-
-" 文字コードの自動認識
-if &encoding !=# 'utf-8'
-  set encoding=japan
-  set fileencoding=japan
-endif
-if has('iconv')
-  let s:enc_euc = 'euc-jp'
-  let s:enc_jis = 'iso-2022-jp'
-  " iconvがeucJP-msに対応しているかをチェック
-  if iconv("\x87\x64\x87\x6a", 'cp932', 'eucjp-ms') ==# "\xad\xc5\xad\xcb"
-    let s:enc_euc = 'eucjp-ms'
-    let s:enc_jis = 'iso-2022-jp-3'
-  " iconvがJISX0213に対応しているかをチェック
-  elseif iconv("\x87\x64\x87\x6a", 'cp932', 'euc-jisx0213') ==# "\xad\xc5\xad\xcb"
-    let s:enc_euc = 'euc-jisx0213'
-    let s:enc_jis = 'iso-2022-jp-3'
-  endif
-  " fileencodingsを構築
-  if &encoding ==# 'utf-8'
-    let s:fileencodings_default = &fileencodings
-    let &fileencodings = s:enc_jis .','. s:enc_euc .',cp932'
-    let &fileencodings = &fileencodings .','. s:fileencodings_default
-    unlet s:fileencodings_default
-  else
-    let &fileencodings = &fileencodings .','. s:enc_jis
-    set fileencodings+=utf-8,ucs-2le,ucs-2
-    if &encoding =~# '^\(euc-jp\|euc-jisx0213\|eucjp-ms\)$'
-      set fileencodings+=cp932
-      set fileencodings-=euc-jp
-      set fileencodings-=euc-jisx0213
-      set fileencodings-=eucjp-ms
-      let &encoding = s:enc_euc
-      let &fileencoding = s:enc_euc
-    else
-      let &fileencodings = &fileencodings .','. s:enc_euc
-    endif
-  endif
-  " 定数を処分
-  unlet s:enc_euc
-  unlet s:enc_jis
-endif
-" 日本語を含まない場合は fileencoding に encoding を使うようにする
-if has('autocmd')
-  function! AU_ReCheck_FENC()
-    if &fileencoding =~# 'iso-2022-jp' && search("[^\x01-\x7e]", 'n') == 0
-      let &fileencoding=&encoding
-    endif
-  endfunction
-  autocmd BufReadPost * call AU_ReCheck_FENC()
-endif
 " 改行コードの自動認識
 set fileformats=unix,dos,mac
 " □とか○の文字があってもカーソル位置がずれないようにする
 if exists('&ambiwidth')
   set ambiwidth=double
 endif
-
-
-
 
 
 set nocompatible
@@ -471,21 +381,6 @@ let g:vim_json_syntax_conceal = 0
 " tagbar
 nnoremap <silent> <F9> :TagbarToggle<CR>
 let g:tagbar_ctags_bin = $HOME . '/opt/ctags/bin/ctags'
-
-" jedi
-let s:hooks = neobundle#get_hooks("jedi-vim")
-function! s:hooks.on_source(bundle)
-  " jediにvimの設定を任せると'completeopt+=preview'するので
-  " 自動設定機能をOFFにし手動で設定を行う
-  let g:jedi#auto_vim_configuration = 0
-  " 補完の最初の項目が選択された状態だと使いにくいためオフにする
-  let g:jedi#popup_select_first = 0
-  " quickrunと被るため大文字に変更
-  let g:jedi#rename_command = '<Leader>R'
-  " gundoと被るため大文字に変更 (2013-06-24 10:00 追記）
-  let g:jedi#goto_assignments_command = '<Leader>G'
-  let g:jedi#completions_enabled = 0
-endfunction
 
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.

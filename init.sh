@@ -11,8 +11,7 @@ done
 git submodule init
 git submodule update
 git submodule foreach 'git checkout master; git pull'
-mkdir .vim/bundle
-neobundle.vim/bin/install.sh
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \0  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 chmod 755 .vim/bundle/tagbar-phpctags/bin/phpctags
 
