@@ -475,6 +475,9 @@ if $GOROOT != ''
   exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
 endif
 
+" jedi
+let g:jedi#smart_auto_mappings = 0
+
 set t_Co=256
 
 let g:lightline = {
