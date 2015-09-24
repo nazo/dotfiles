@@ -467,11 +467,6 @@ let g:neocomplete#sources#omni#input_patterns.python = '\h\w|[^. \t].\w'
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
-" incsearch.vim
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-
 autocmd FileType python setlocal completeopt-=preview
 autocmd BufWritePost *.py call Flake8()
 
