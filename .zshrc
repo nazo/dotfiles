@@ -399,6 +399,9 @@ alias tmux='TERM=xterm-256color tmuxx'
 # zsh-bd
 . $HOME/.zsh/plugins/bd/bd.zsh
 
+# tmuxinator
+source $HOME/.tmuxinator/tmuxinator.zsh
+
 ## load user .zshrc configuration file
 #
 [ -f ~/.zshrc.mine ] && source ~/.zshrc.mine

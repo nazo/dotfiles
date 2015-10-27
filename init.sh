@@ -18,6 +18,10 @@ chmod 755 .vim/bundle/tagbar-phpctags/bin/phpctags
 mkdir -p $HOME/.zsh/plugins/bd
 curl https://raw.githubusercontent.com/Tarrasch/zsh-bd/master/bd.zsh > $HOME/.zsh/plugins/bd/bd.zsh
 
+mkdir $HOME/.tmuxinator
+wget https://raw.github.com/aziz/tmuxinator/master/completion/tmuxinator.zsh
+mv tmuxinator.zsh $HOME/.tmuxinator
+
 cd .vim/doc/download
 wget http://jp.php.net/get/php_manual_ja.tar.gz/from/this/mirror
 mv mirror php_manual_ja.tar.gz
