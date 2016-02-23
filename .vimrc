@@ -97,6 +97,10 @@ Plug 'zah/nimrod.vim'
 Plug 'google/vim-colorscheme-primary'
 Plug 'elzr/vim-json'
 Plug 'davidhalter/jedi-vim'
+Plug 'digitaltoad/vim-jade'
+Plug 'JulesWang/css.vim'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'isRuslan/vim-es6'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -116,22 +120,6 @@ endif
 set nocompatible
 
 filetype off                   " required!
-"
-" Brief help
-"
-" :BundleInstall  - install bundles (won't update installed)
-" :BundleInstall! - update if installed
-"
-" :Bundles foo    - search for foo
-" :Bundles! foo   - refresh cached list and search for foo
-"
-" :BundleClean    - confirm removal of unused bundles
-" :BundleClean!   - remove without confirmation
-"
-" see :h vundle for more details
-" or wiki for FAQ
-" Note: comments after Bundle command are not allowed..
-
 
 " display
 "-----------------------------------------------------------
@@ -289,7 +277,8 @@ colorscheme mrkn256
 " colorscheme solarized
 
 autocmd BufNewFile,BufRead *.ctp set filetype=php
-autocmd BufNewFile,BufRead *.twig set filetype=html
+autocmd BufNewFile,BufRead *.twig set filetype=htmldjango
+autocmd BufRead,BufNewFile *.babel.js set filetype=javascript
 
 " 行末の余計なスペース削除
 autocmd BufWritePre * :%s/\s\+$//ge

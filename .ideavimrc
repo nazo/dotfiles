@@ -1,0 +1,42 @@
+" search
+"-----------------------------------------------------------
+set incsearch
+set ignorecase
+set smartcase
+
+" edit
+"-----------------------------------------------------------
+set autoindent
+set backspace=indent,eol,start
+set showmatch
+set wildmenu
+set formatoptions+=mM
+set clipboard=unnamed
+
+" tab
+"-----------------------------------------------------------
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set smarttab
+inoremap <C-Tab> <C-V><Tab>
+
+set modelines=5
+
+" タブページを常に表示
+set showtabline=2
+" gVimでもテキストベースのタブページを使う
+set guioptions-=e
+
+" key map
+" move at line
+nnoremap j gj
+nnoremap k gk
+
+autocmd BufNewFile,BufRead *.ctp set filetype=php
+autocmd BufNewFile,BufRead *.twig set filetype=htmldjango
+autocmd BufRead,BufNewFile *.babel.js set filetype=javascript
+
+" 行末の余計なスペース削除
+autocmd BufWritePre * :%s/\s\+$//ge
