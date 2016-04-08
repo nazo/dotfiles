@@ -101,6 +101,7 @@ Plug 'digitaltoad/vim-jade'
 Plug 'JulesWang/css.vim'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'isRuslan/vim-es6'
+Plug 'fatih/vim-go'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -359,9 +360,9 @@ endif
 
 " syntastic
 let g:syntastic_mode_map = { 'mode': 'active',
-  \ 'active_filetypes': [],
   \ 'passive_filetypes': ['html', 'php', 'python'] }
 let g:syntastic_auto_loc_list = 1
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 nnoremap <C-l> :SyntasticCheck<CR>
 
 " vim-json
