@@ -221,11 +221,11 @@ endfunction
 
 " utf-8
 "-----------------------------------------------------------
-"let &termencoding=&encoding
-"set termencoding=utf-8
-"set encoding=utf-8
-"set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp-2,euc-jisx0213,euc-jp,cp932,utf-8
-"set fileencodings=utf-8
+let &termencoding=&encoding
+set termencoding=utf-8
+set encoding=utf-8
+set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp-2,euc-jisx0213,euc-jp,cp932,utf-8
+set fileencodings=utf-8
 
 " 改行コードの自動認識
 set fileformats=unix,dos,mac
@@ -364,6 +364,10 @@ let g:syntastic_mode_map = { 'mode': 'active',
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 nnoremap <C-l> :SyntasticCheck<CR>
+
+" vim-go
+let g:go_fmt_command = "goimports"
+let g:go_fmt_fail_silently = 1
 
 " vim-json
 let g:vim_json_syntax_conceal = 0
