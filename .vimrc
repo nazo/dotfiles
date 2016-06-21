@@ -73,7 +73,7 @@ Plug 'tsukkee/unite-tag'
 Plug 'derekwyatt/vim-scala'
 
 Plug 'vim-jp/vital.vim'
-Plug 'thinca/vim-ref'
+Plug 'thinca/vim-zenspace'
 Plug 'leafgarland/typescript-vim'
 Plug 'majutsushi/tagbar'
 Plug 'vim-scripts/tagbar-phpctags'
@@ -102,6 +102,7 @@ Plug 'JulesWang/css.vim'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'isRuslan/vim-es6'
 Plug 'fatih/vim-go'
+Plug 'b4b4r07/vim-hcl'
 
 " Add plugins to &runtimepath
 call plug#end()
