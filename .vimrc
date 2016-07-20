@@ -73,7 +73,7 @@ Plug 'tsukkee/unite-tag'
 Plug 'derekwyatt/vim-scala'
 
 Plug 'vim-jp/vital.vim'
-Plug 'thinca/vim-ref'
+Plug 'thinca/vim-zenspace'
 Plug 'leafgarland/typescript-vim'
 Plug 'majutsushi/tagbar'
 Plug 'vim-scripts/tagbar-phpctags'
@@ -97,6 +97,12 @@ Plug 'zah/nimrod.vim'
 Plug 'google/vim-colorscheme-primary'
 Plug 'elzr/vim-json'
 Plug 'davidhalter/jedi-vim'
+Plug 'digitaltoad/vim-jade'
+Plug 'JulesWang/css.vim'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'isRuslan/vim-es6'
+Plug 'fatih/vim-go'
+Plug 'b4b4r07/vim-hcl'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -116,22 +122,6 @@ endif
 set nocompatible
 
 filetype off                   " required!
-"
-" Brief help
-"
-" :BundleInstall  - install bundles (won't update installed)
-" :BundleInstall! - update if installed
-"
-" :Bundles foo    - search for foo
-" :Bundles! foo   - refresh cached list and search for foo
-"
-" :BundleClean    - confirm removal of unused bundles
-" :BundleClean!   - remove without confirmation
-"
-" see :h vundle for more details
-" or wiki for FAQ
-" Note: comments after Bundle command are not allowed..
-
 
 " display
 "-----------------------------------------------------------
@@ -232,11 +222,11 @@ endfunction
 
 " utf-8
 "-----------------------------------------------------------
-"let &termencoding=&encoding
-"set termencoding=utf-8
-"set encoding=utf-8
-"set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp-2,euc-jisx0213,euc-jp,cp932,utf-8
-"set fileencodings=utf-8
+let &termencoding=&encoding
+set termencoding=utf-8
+set encoding=utf-8
+set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp-2,euc-jisx0213,euc-jp,cp932,utf-8
+set fileencodings=utf-8
 
 " 改行コードの自動認識
 set fileformats=unix,dos,mac
@@ -289,7 +279,8 @@ colorscheme mrkn256
 " colorscheme solarized
 
 autocmd BufNewFile,BufRead *.ctp set filetype=php
-autocmd BufNewFile,BufRead *.twig set filetype=html
+autocmd BufNewFile,BufRead *.twig set filetype=htmldjango
+autocmd BufRead,BufNewFile *.babel.js set filetype=javascript
 
 " 行末の余計なスペース削除
 autocmd BufWritePre * :%s/\s\+$//ge
@@ -370,10 +361,14 @@ endif
 
 " syntastic
 let g:syntastic_mode_map = { 'mode': 'active',
-  \ 'active_filetypes': [],
   \ 'passive_filetypes': ['html', 'php', 'python'] }
 let g:syntastic_auto_loc_list = 1
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 nnoremap <C-l> :SyntasticCheck<CR>
+
+" vim-go
+let g:go_fmt_command = "goimports"
+let g:go_fmt_fail_silently = 1
 
 " vim-json
 let g:vim_json_syntax_conceal = 0
