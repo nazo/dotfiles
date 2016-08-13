@@ -103,6 +103,7 @@ Plug 'cakebaker/scss-syntax.vim'
 Plug 'isRuslan/vim-es6'
 Plug 'fatih/vim-go'
 Plug 'b4b4r07/vim-hcl'
+Plug 'tpope/vim-markdown'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -281,6 +282,7 @@ colorscheme mrkn256
 autocmd BufNewFile,BufRead *.ctp set filetype=php
 autocmd BufNewFile,BufRead *.twig set filetype=htmldjango
 autocmd BufRead,BufNewFile *.babel.js set filetype=javascript
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " 行末の余計なスペース削除
 autocmd BufWritePre * :%s/\s\+$//ge
@@ -444,7 +446,7 @@ inoremap <expr><C-e>  neocomplete#cancel_popup()
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType python setlocal omnifunc=jedi#completions
