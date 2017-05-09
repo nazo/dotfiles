@@ -116,6 +116,7 @@ Plug 'mxw/vim-jsx'
 Plug 'embear/vim-localvimrc'
 Plug 'tpope/vim-abolish'
 Plug 'sbdchd/neoformat'
+Plug 'tpope/vim-markdown'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -297,6 +298,7 @@ autocmd BufNewFile,BufRead *.twig set filetype=htmldjango
 autocmd BufRead,BufNewFile *.babel.js set filetype=javascript
 autocmd BufNewFile,BufRead *.html.slim set filetype=slim
 autocmd BufNewFile,BufRead Schemafile set filetype=ruby
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " 行末の余計なスペース削除
 autocmd BufWritePre * :%s/\s\+$//ge
@@ -464,7 +466,7 @@ inoremap <expr><C-e>  neocomplete#cancel_popup()
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType python setlocal omnifunc=jedi#completions
