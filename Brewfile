@@ -3,6 +3,7 @@ update
 tap caskroom/cask
 tap peco/peco
 
+install fish
 install brew-cask
 install jq
 install homebrew/binary/jsl
@@ -15,7 +16,6 @@ install memcached
 install tmux
 install wget
 install tig
-install zsh
 install mobile-shell
 install reattach-to-user-namespace
 install python
@@ -28,9 +28,13 @@ install winetricks
 install peco
 install go
 install pt
-install ruby-build
+uninstall ruby-build
 install rbenv
-cask install boot2docker
+install packer
+install terraform
+install pwgen
+install coreutils
+install youtube-dl
 
 cleanup
 

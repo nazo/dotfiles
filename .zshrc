@@ -91,6 +91,7 @@ SAVEHIST=10000
 setopt hist_ignore_dups     # ignore duplication command history list
 setopt share_history        # share command history data
 
+HISTTIMEFORMAT="[%Y/%M/%D %H:%M:%S] "
 
 ## Completion configuration
 #
@@ -296,7 +297,7 @@ export JAVA_HOME=/usr/lib/jvm/java-6-sun
 export JRUBY_HOME=/opt/gae-j
 export PATH=$HOME/.nimble/bin:/usr/local/heroku/bin:$HOME/bin:$HOME/flex_sdk/bin:$HOME/opt/tig:$HOME/app/termtter/bin:$HOME/.cabal/bin:$HOME/.composer/vendor/bin:$JRUBY_HOME/bin:$JAVA_HOME/bin:/opt/local/bin:/opt/bin:/opt/screen/bin:/opt/zsh/bin:/opt/gae-j/bin:/usr/local/google_appengine:/opt/ctags/bin:/usr/gnu/bin:/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:$PATH
 
-export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export PATH=$PATH:$HOME/.rvm/bin:$HOME/.rbenv/bin # Add RVM to PATH for scripting
 
 if [ -x "`which go`" ]; then
     export GOROOT=`go env GOROOT`
@@ -402,6 +403,7 @@ alias tmux='TERM=xterm-256color tmuxx'
 # tmuxinator
 source $HOME/.tmuxinator/tmuxinator.zsh
 
+source ~/.zplug/init.zsh
+
 ## load user .zshrc configuration file
-#
 [ -f ~/.zshrc.mine ] && source ~/.zshrc.mine

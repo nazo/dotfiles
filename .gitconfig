@@ -15,23 +15,9 @@
     showpr = !"f() { git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1; }; f"
     openpr = "!f() { hub browse -- `git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%pull/%'`; }; f"
 
-[merge]
-    ff = false
-
 [user]
     name =
     email =
-
-[http]
-#	sslcainfo = /Users/nazo/DigiCertHighAssuranceEVRootCA.crt
-[core]
-#	excludesfile = /Users/nazo/.gitignore_global
-#[difftool "sourcetree"]
-#	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-#	path =
-#[mergetool "sourcetree"]
-#	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-#	trustExitCode = true
 
 [tig "bind"]
     generic = g move-first-line
@@ -45,3 +31,5 @@
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+[http]
+	cookiefile = ~/.gitcookies

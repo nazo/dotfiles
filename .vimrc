@@ -7,12 +7,18 @@ if has('vim_starting')
   endif
 endif
 
+" disable kaoriya default vimproc
+if kaoriya#switch#enabled('disable-vimproc')
+  let &rtp = join(filter(split(&rtp, ','), 'v:val !~ "[/\\\\]plugins[/\\\\]vimproc$"'), ',')
+endif
+
 call plug#begin()
 
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 
 " My Bundles here:
 Plug 'rails.vim'
+Plug 'slim-template/vim-slim'
 
 Plug 'haml.zip'
 Plug 'git-commit'
@@ -91,7 +97,7 @@ Plug 'Shougo/neomru.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'nazo/pt.vim'
 Plug 'rking/ag.vim'
-Plug 'pangloss/vim-javascript'
+Plug 'othree/yajs.vim'
 Plug 'aklt/plantuml-syntax'
 Plug 'zah/nimrod.vim'
 Plug 'google/vim-colorscheme-primary'
@@ -103,6 +109,13 @@ Plug 'cakebaker/scss-syntax.vim'
 Plug 'isRuslan/vim-es6'
 Plug 'fatih/vim-go'
 Plug 'b4b4r07/vim-hcl'
+Plug 'chase/vim-ansible-yaml'
+Plug 'dag/vim-fish'
+Plug 'tmux-plugins/vim-tmux'
+Plug 'mxw/vim-jsx'
+Plug 'embear/vim-localvimrc'
+Plug 'tpope/vim-abolish'
+Plug 'sbdchd/neoformat'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -120,6 +133,7 @@ endif
 
 
 set nocompatible
+set shell=/bin/bash
 
 filetype off                   " required!
 
@@ -281,6 +295,8 @@ colorscheme mrkn256
 autocmd BufNewFile,BufRead *.ctp set filetype=php
 autocmd BufNewFile,BufRead *.twig set filetype=htmldjango
 autocmd BufRead,BufNewFile *.babel.js set filetype=javascript
+autocmd BufNewFile,BufRead *.html.slim set filetype=slim
+autocmd BufNewFile,BufRead Schemafile set filetype=ruby
 
 " 行末の余計なスペース削除
 autocmd BufWritePre * :%s/\s\+$//ge
@@ -387,6 +403,10 @@ let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+" vim-localvimrc
+let g:localvimrc_persistent=2
+let g:localvimrc_sandbox=0
 
 " Define dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {

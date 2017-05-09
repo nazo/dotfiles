@@ -8,40 +8,33 @@ do
     fi
 done
 
+mkdir -p ~/.config/
+
 git submodule init
 git submodule update
 git submodule foreach 'git checkout master; git pull'
+
+if [ `uname` = "Darwin" ]; then
+    #mac用のコード(Homebrew)
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    brew doctor
+    brew tap Homebrew/brewdler
+    brew bundle
+fi
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 chmod 755 .vim/bundle/tagbar-phpctags/bin/phpctags
 
-mkdir -p $HOME/.zsh/plugins/bd
-curl https://raw.githubusercontent.com/Tarrasch/zsh-bd/master/bd.zsh > $HOME/.zsh/plugins/bd/bd.zsh
-
 mkdir $HOME/.tmuxinator
 wget https://raw.github.com/aziz/tmuxinator/master/completion/tmuxinator.zsh
 mv tmuxinator.zsh $HOME/.tmuxinator
-
-cd .vim/doc/download
-wget http://jp.php.net/get/php_manual_ja.tar.gz/from/this/mirror
-mv mirror php_manual_ja.tar.gz
-tar zxvf php_manual_ja.tar.gz
-rm php_manual_ja.tar.gz
-cd ../../..
 
 mkdir ${HOME}/bin
 mkdir ${HOME}/go
 
 ln -Fs "$PWD/plantuml" ~/bin
-
-if [ `uname` = "Darwin" ]; then
-    #mac用のコード(Homebrew)
-    ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-    brew doctor
-    brew bundle
-fi
 
 mkdir tmp
 cd tmp
@@ -60,6 +53,9 @@ git clone https://github.com/erikw/tmux-powerline.git
 cd ..
 
 sh ctags.sh
+
+rm -rf ~/.rbenv/plugins/ruby-build
+git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 
 rm -rf tmp
 
