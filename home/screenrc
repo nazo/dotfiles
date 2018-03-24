@@ -1,0 +1,24 @@
+escape 
+
+defutf8 on
+defkanji utf-8
+encoding utf-8 utf-8
+defencoding utf-8
+
+termcapinfo xterm-color 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+vbell off
+autodetach on
+caption always "%{= wk} %-w%{=bu dr}%n %t%{-}%+w %= %{=b wb}%y/%m/%d %{=b wb}%"
+#caption always "%?%F%{= bW}%:%{= wk}%?%2n%f%07=%t%="
+defscrollback 3000
+#hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%Y-%m-%d %{W}%c %{g}]'
+hardstatus alwayslastline '%{= kG}[ %{G}%h %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%m/%d %{W}%02c:%s%{g}]'
+#hardstatus alwayslastline "%{= Wb}[%m/%d %02c:%s]%016=%{= WK}%-w%50>%{= bW}%n %t%{-}%+w%-0< %="
+#hardstatus alwayslastline " %n: %h"
+bind 'U' eval "encoding utf8" "stuff 'export LANG=ja_JP.UTF-8\012'"
+bind 'E' eval "encoding euc"  "stuff 'export LANG=ja_JP.EUC-JP\012'"
+startup_message off
+
+log off
+deflog off
+
