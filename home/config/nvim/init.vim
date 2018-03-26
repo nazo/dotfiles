@@ -21,7 +21,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " visual
-Plug 'jdkanani/vim-material-theme'
+Plug 'tomasr/molokai'
 
 " Ruby/Rails
 Plug 'tpope/vim-rails'
@@ -107,8 +107,7 @@ endif
 
 " Theme
 syntax enable
-set background=dark
-colorscheme material-theme
+colorscheme molokai
 
 " FZF
 command! MRU call fzf#run({
