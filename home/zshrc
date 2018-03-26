@@ -2,6 +2,7 @@ source ~/.zplug/init.zsh
 
 # Make sure to use double quotes
 zplug "zsh-users/zsh-history-substring-search"
+zplug "zsh-users/zsh-completions"
 
 # Use the package as a command
 # And accept glob patterns (e.g., brace, wildcard, ...)
@@ -20,6 +21,8 @@ zplug "junegunn/fzf-bin", \
     as:command, \
     rename-to:fzf, \
     use:"*darwin*amd64*"
+
+zplug "junegunn/fzf", as:command, of:bin/fzf-tmux
 
 # Supports oh-my-zsh plugins and the like
 zplug "plugins/git",   from:oh-my-zsh
@@ -62,12 +65,12 @@ zplug "b4b4r07/hello_bitbucket", \
 
 # Group dependencies
 # Load "emoji-cli" if "jq" is installed in this example
-#zplug "stedolan/jq", \
-#    from:gh-r, \
-#    as:command, \
-#    rename-to:jq
-#zplug "b4b4r07/emoji-cli", \
-#    on:"stedolan/jq"
+zplug "stedolan/jq", \
+    from:gh-r, \
+    as:command, \
+    rename-to:jq
+zplug "b4b4r07/emoji-cli", \
+    on:"stedolan/jq"
 # Note: To specify the order in which packages should be loaded, use the defer
 #       tag described in the next section
 

@@ -17,7 +17,8 @@ Plug 'Shougo/neomru.vim'
 
 Plug 'tpope/vim-endwise'
 Plug 'mileszs/ack.vim'
-Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " visual
 Plug 'jdkanani/vim-material-theme'
@@ -29,7 +30,7 @@ Plug 'slim-template/vim-slim'
 
 " Go
 Plug 'fatih/vim-go'
-Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.local/share/nvim/plugged/gocode/nvim/symlink.sh' }
 
 " PHP
 Plug 'StanAngeloff/php.vim'
@@ -77,6 +78,16 @@ set list
 
 set number
 
+" fast esc
+if ! has('gui_running')
+    set ttimeoutlen=10
+    augroup FastEscape
+        autocmd!
+        au InsertEnter * set timeoutlen=0
+        au InsertLeave * set timeoutlen=1000
+    augroup END
+endif
+
 " deoplete
 let g:deoplete#enable_at_startup = 1
 
@@ -99,3 +110,13 @@ syntax enable
 set background=dark
 colorscheme material-theme
 
+" FZF
+command! MRU call fzf#run({
+\  'source':  v:oldfiles,
+\  'sink':    'e',
+\  'options': '-m -x +s',
+\  'down':    '40%'})
+
+" vim-go
+let g:go_fmt_command = "goimports"
+let g:go_fmt_fail_silently = 1
