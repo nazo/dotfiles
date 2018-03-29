@@ -22,6 +22,10 @@ Plug 'junegunn/fzf.vim'
 
 " visual
 Plug 'tomasr/molokai'
+Plug 'itchyny/lightline.vim'
+
+" syntax
+Plug 'w0rp/ale'
 
 " Ruby/Rails
 Plug 'tpope/vim-rails'
@@ -119,3 +123,13 @@ command! MRU call fzf#run({
 " vim-go
 let g:go_fmt_command = "goimports"
 let g:go_fmt_fail_silently = 1
+
+" lightline
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ }
+
+" ale
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
