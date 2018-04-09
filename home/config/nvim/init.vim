@@ -64,13 +64,17 @@ Plug 'dart-lang/dart-vim-plugin'
 
 " Swift
 
-" template engine
+" template engine/configuration file
 Plug 'juvenn/mustache.vim'
 Plug 'lumiliet/vim-twig'
 Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'stephpy/vim-yaml'
+Plug 'cespare/vim-toml'
+Plug 'elzr/vim-json'
 
 " devops
 Plug 'hashivim/vim-terraform'
+Plug 'chase/vim-ansible-yaml'
 
 " Initialize plugin system
 call plug#end()
@@ -133,3 +137,6 @@ let g:lightline = {
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+" vim-json
+let g:vim_json_syntax_conceal = 0
