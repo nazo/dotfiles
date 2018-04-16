@@ -19,6 +19,7 @@ Plug 'tpope/vim-endwise'
 Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'Shougo/vimfiler.vim'
 
 " visual
 Plug 'tomasr/molokai'
@@ -71,6 +72,10 @@ Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'stephpy/vim-yaml'
 Plug 'cespare/vim-toml'
 Plug 'elzr/vim-json'
+
+" text
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
 " devops
 Plug 'hashivim/vim-terraform'
@@ -140,3 +145,9 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 " vim-json
 let g:vim_json_syntax_conceal = 0
+
+" vimfiler
+let g:vimfiler_as_default_explorer = 1
+
+" vim-markdown
+let g:vim_markdown_folding_disabled = 1
