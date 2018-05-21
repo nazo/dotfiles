@@ -127,6 +127,9 @@ setopt share_history        # share command history data
 
 HISTTIMEFORMAT="[%Y/%M/%D %H:%M:%S] "
 
+# color cli
+export CLICOLOR=1
+
 # command correct edition before each completion attempt
 #
 setopt correct
