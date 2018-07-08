@@ -1,2 +1,4 @@
 .envrc
 .direnv
+*.deb
+*.deb.1
