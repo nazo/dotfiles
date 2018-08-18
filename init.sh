@@ -17,6 +17,7 @@ pip3 install --upgrade neovim
 pip install --user powerline-status
 
 # zsh
+touch ~/.zshrc.mine
 
 # tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

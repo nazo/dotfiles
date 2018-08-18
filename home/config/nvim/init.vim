@@ -24,6 +24,7 @@ Plug 'Shougo/vimfiler.vim'
 " visual
 Plug 'tomasr/molokai'
 Plug 'itchyny/lightline.vim'
+Plug 'luochen1990/rainbow'
 
 " syntax
 Plug 'w0rp/ale'
@@ -53,6 +54,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
 Plug 'posva/vim-vue'
+Plug 'leafgarland/typescript-vim'
 
 " Dart/Flutter
 Plug 'dart-lang/dart-vim-plugin'
@@ -90,6 +92,9 @@ set listchars=trail:-,nbsp:+,tab:>.
 set list
 
 set number
+set expandtab
+set tabstop=2
+set shiftwidth=2
 
 " fast esc
 if ! has('gui_running')
@@ -151,6 +156,12 @@ let g:vimfiler_as_default_explorer = 1
 
 " vim-markdown
 let g:vim_markdown_folding_disabled = 1
+
+" trailing whitespace
+autocmd BufWritePre * :%s/\s\+$//ge
+
+" rainbow
+let g:rainbow_active = 1
 
 " default
 setlocal expandtab
