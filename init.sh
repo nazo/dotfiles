@@ -1,8 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 
 OS=linux
 if [ "$(uname)" == 'Darwin' ]; then
   OS=mac
+fi
+if [ -e /etc/lsb-release ]; then
+  OS=ubuntu
 fi
 
 /bin/sh $PWD/$OS/packages.sh
