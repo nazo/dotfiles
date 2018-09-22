@@ -25,6 +25,7 @@ Plug 'Shougo/vimfiler.vim'
 Plug 'tomasr/molokai'
 Plug 'itchyny/lightline.vim'
 Plug 'luochen1990/rainbow'
+Plug 'mechatroner/rainbow_csv'
 
 " syntax
 Plug 'w0rp/ale'
