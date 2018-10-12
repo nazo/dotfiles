@@ -20,6 +20,7 @@ Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'Shougo/vimfiler.vim'
+Plug 'junegunn/vim-emoji'
 
 " visual
 Plug 'tomasr/molokai'
@@ -163,6 +164,13 @@ autocmd BufWritePre * :%s/\s\+$//ge
 
 " rainbow
 let g:rainbow_active = 1
+
+" vim-emoji
+augroup emoji_complete
+  autocmd!
+  autocmd FileType markdown setlocal completefunc=emoji#complete
+  autocmd FileType gitcommit setlocal completefunc=emoji#complete
+augroup END
 
 " default
 setlocal expandtab
