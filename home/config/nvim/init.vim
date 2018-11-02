@@ -21,12 +21,18 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'Shougo/vimfiler.vim'
 Plug 'junegunn/vim-emoji'
+Plug 'lambdalisue/vim-manpager'
 
 " visual
 Plug 'tomasr/molokai'
 Plug 'itchyny/lightline.vim'
 Plug 'luochen1990/rainbow'
 Plug 'mechatroner/rainbow_csv'
+Plug 'LeafCage/foldCC.vim'
+Plug 'andymass/vim-matchup'
+Plug 'machakann/vim-highlightedyank'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'ryanoasis/vim-devicons'
 
 " syntax
 Plug 'w0rp/ale'
@@ -171,6 +177,9 @@ augroup emoji_complete
   autocmd FileType markdown setlocal completefunc=emoji#complete
   autocmd FileType gitcommit setlocal completefunc=emoji#complete
 augroup END
+
+" vim-indent-guides
+let g:indent_guides_enable_on_vim_startup = 1
 
 " default
 setlocal expandtab
