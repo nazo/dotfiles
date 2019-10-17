@@ -22,8 +22,11 @@ cd fonts
 cd ..
 rm -rf fonts
 
+# zsh
+zsh prezto.sh
+
 # vim
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # zsh
@@ -31,3 +34,4 @@ touch ~/.zshrc.mine
 
 # tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+

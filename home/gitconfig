@@ -32,3 +32,5 @@ required = true
 
 [http]
 cookiefile = ~/.gitcookies
+[core]
+	editor = vim
