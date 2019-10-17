@@ -13,11 +13,18 @@ fi
 # dotfiles
 rcup -d $PWD/home -v
 
+pip3 install --user powerline-status awscli awslogs pynvim
+
+# powerline
+git clone https://github.com/powerline/fonts.git --depth=1
+cd fonts
+./install.sh
+cd ..
+rm -rf fonts
+
 # vim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-pip3 install --upgrade neovim
-pip install --user powerline-status
 
 # zsh
 touch ~/.zshrc.mine
