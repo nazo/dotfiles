@@ -40,3 +40,7 @@ autocmd BufRead,BufNewFile *.babel.js set filetype=javascript
 
 " 行末の余計なスペース削除
 autocmd BufWritePre * :%s/\s\+$//ge
+
+set clipboard+=unnamed
+set clipboard-=ideaput
+
