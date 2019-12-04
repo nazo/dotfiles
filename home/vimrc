@@ -24,7 +24,7 @@ Plug 'junegunn/vim-emoji'
 Plug 'lambdalisue/vim-manpager'
 
 " visual
-Plug 'tomasr/molokai'
+Plug 'cocopon/iceberg.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'luochen1990/rainbow'
 Plug 'mechatroner/rainbow_csv'
@@ -133,7 +133,7 @@ endif
 
 " Theme
 syntax enable
-colorscheme molokai
+colorscheme iceberg
 
 " FZF
 command! MRU call fzf#run({
