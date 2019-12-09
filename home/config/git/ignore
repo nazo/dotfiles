@@ -1,0 +1,7 @@
+.envrc
+.direnv
+*~
+.vscode
+*.DS_Store
+.idea
+
