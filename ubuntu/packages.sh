@@ -2,7 +2,7 @@
 
 sudo apt update
 sudo apt upgrade
-sudo apt install git zsh tmux silversearcher-ag python python-pip python3 python3-pip software-properties-common python-dev python3-dev python3-setuptools
+sudo apt install git zsh tmux silversearcher-ag python python-pip python3 python3-pip software-properties-common python-dev python3-dev python3-setuptools direnv
 
 
 wget -qO - https://apt.thoughtbot.com/thoughtbot.gpg.key | sudo apt-key add -
