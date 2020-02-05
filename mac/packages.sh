@@ -4,6 +4,6 @@
 
 brew update
 brew upgrade
-brew install peco the_silver_searcher ctags python fzf git zsh tmux fzy direnv wget
+brew install peco the_silver_searcher ctags python fzf git zsh tmux fzy direnv wget vim
 brew tap thoughtbot/formulae
 brew install rcm

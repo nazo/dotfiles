@@ -1,104 +1,63 @@
 " Specify a directory for plugins
-" - For Neovim: ~/.local/share/nvim/plugged
+" - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
-call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin('~/.vim/plugged')
 
-Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'Shougo/unite.vim'
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-Plug 'Shougo/unite-outline'
-Plug 'Shougo/neomru.vim'
+" LSP
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'mattn/vim-lsp-icons'
 
-Plug 'tpope/vim-endwise'
-Plug 'mileszs/ack.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'Shougo/vimfiler.vim'
-Plug 'junegunn/vim-emoji'
-Plug 'lambdalisue/vim-manpager'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
 
-" visual
-Plug 'cocopon/iceberg.vim'
+Plug 'elixir-editors/vim-elixir'
+
+" Visual
 Plug 'itchyny/lightline.vim'
+Plug 'cocopon/iceberg.vim'
 Plug 'luochen1990/rainbow'
 Plug 'mechatroner/rainbow_csv'
-Plug 'LeafCage/foldCC.vim'
-Plug 'andymass/vim-matchup'
-Plug 'machakann/vim-highlightedyank'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'ryanoasis/vim-devicons'
 
-" syntax
-Plug 'w0rp/ale'
+" Finder
+Plug 'mileszs/ack.vim'
+Plug 'justinmk/vim-dirvish'
 
-" Ruby/Rails
-Plug 'tpope/vim-rails'
-Plug 'basyura/unite-rails'
-Plug 'slim-template/vim-slim'
-
-" Go
-Plug 'fatih/vim-go'
-Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.local/share/nvim/plugged/gocode/nvim/symlink.sh' }
-
-" PHP
-Plug 'StanAngeloff/php.vim'
-Plug 'arnaud-lb/vim-php-namespace'
-
-" Python
-Plug 'davidhalter/jedi-vim'
-
-" JavaScript/AltJS/SPA
-Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'kchmck/vim-coffee-script'
-Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
-Plug 'posva/vim-vue'
-Plug 'leafgarland/typescript-vim'
-
-" Dart/Flutter
-Plug 'dart-lang/dart-vim-plugin'
-
-" Java
-
-" Kotlin
-
-" ObjC
-
-" Swift
-
-" template engine/configuration file
-Plug 'juvenn/mustache.vim'
-Plug 'lumiliet/vim-twig'
-Plug 'Glench/Vim-Jinja2-Syntax'
-Plug 'stephpy/vim-yaml'
-Plug 'cespare/vim-toml'
-Plug 'elzr/vim-json'
-
-" text
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-
-" devops
-Plug 'hashivim/vim-terraform'
-Plug 'chase/vim-ansible-yaml'
-
-" Initialize plugin system
 call plug#end()
 
-"""""""""""""""""""""""""""""""""""""""""
+" lightline
 
+set laststatus=2
+let g:lightline = {
+      \ 'colorscheme': 'iceberg',
+      \ }
+
+" color
+
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
+"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+if (empty($TMUX))
+  if (has("nvim"))
+    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+
+syntax enable
+colorscheme iceberg
+let g:rainbow_active = 1
 set listchars=trail:-,nbsp:+,tab:>.
 set list
-
 set number
 set expandtab
 set tabstop=2
@@ -114,72 +73,14 @@ if ! has('gui_running')
     augroup END
 endif
 
-" deoplete
-let g:deoplete#enable_at_startup = 1
+" clipboard
+
+if has('mac')
+  set clipboard=unnamed
+endif
 
 " the silver searcher
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-" Mac
-if has('mac')
-  set clipboard=unnamed
-endif
-
-if (has("termguicolors"))
- set termguicolors
-endif
-
-" Theme
-syntax enable
-colorscheme iceberg
-
-" FZF
-command! MRU call fzf#run({
-\  'source':  v:oldfiles,
-\  'sink':    'e',
-\  'options': '-m -x +s',
-\  'down':    '40%'})
-
-" vim-go
-let g:go_fmt_command = "goimports"
-let g:go_fmt_fail_silently = 1
-
-" lightline
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ }
-
-" ale
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-
-" vim-json
-let g:vim_json_syntax_conceal = 0
-
-" vimfiler
-let g:vimfiler_as_default_explorer = 1
-
-" vim-markdown
-let g:vim_markdown_folding_disabled = 1
-
-" trailing whitespace
-autocmd BufWritePre * :%s/\s\+$//ge
-
-" rainbow
-let g:rainbow_active = 1
-
-" vim-emoji
-augroup emoji_complete
-  autocmd!
-  autocmd FileType markdown setlocal completefunc=emoji#complete
-  autocmd FileType gitcommit setlocal completefunc=emoji#complete
-augroup END
-
-" vim-indent-guides
-let g:indent_guides_enable_on_vim_startup = 1
-
-" default
-setlocal expandtab
