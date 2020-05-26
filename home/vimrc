@@ -86,3 +86,8 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
+" swp/backup/undo
+set backupdir=~/.vimbackup
+set directory=~/.vimswp
+set undodir=~/.vimundo
+
