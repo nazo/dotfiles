@@ -27,6 +27,7 @@ Plug 'mileszs/ack.vim'
 Plug 'justinmk/vim-dirvish'
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
+Plug 'vim-scripts/mru.vim'
 
 call plug#end()
 
