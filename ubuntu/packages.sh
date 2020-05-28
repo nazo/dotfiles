@@ -23,3 +23,5 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 wget https://github.com/jhawthorn/fzy/releases/download/0.9/fzy_0.9-1_amd64.deb
 sudo dpkg -i fzy_0.9-1_amd64.deb
 
+wget https://github.com/dandavison/delta/releases/download/0.1.1/git-delta_0.1.1_amd64.deb
+sudo dpkg -i git-delta_0.1.1_amd64.deb

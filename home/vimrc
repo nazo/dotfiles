@@ -27,6 +27,7 @@ Plug 'mileszs/ack.vim'
 Plug 'justinmk/vim-dirvish'
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
+Plug 'vim-scripts/mru.vim'
 
 call plug#end()
 
@@ -85,4 +86,9 @@ endif
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+
+" swp/backup/undo
+set backupdir=~/.vimbackup
+set directory=~/.vimswp
+set undodir=~/.vimundo
 
