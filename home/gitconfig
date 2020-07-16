@@ -1,42 +1,48 @@
 [color]
-ui = auto
-branch = auto
-diff = auto
-status = auto
+  ui = auto
+  branch = auto
+  diff = auto
+  status = auto
 
 [alias]
-co = checkout
-st = status
-ci = commit -av
-df = diff
-br = branch
-mg = merge --no-ff
-subup = submodule foreach git pull origin master --ff
-showpr = !"f() { git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1; }; f"
-openpr = "!f() { hub browse -- `git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%pull/%'`; }; f"
+  co = checkout
+  st = status
+  ci = commit -av
+  df = diff
+  br = branch
+  mg = merge --no-ff
+  subup = submodule foreach git pull origin master --ff
+  showpr = !"f() { git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1; }; f"
+  openpr = "!f() { hub browse -- `git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%pull/%'`; }; f"
 
 [tig "bind"]
-generic = g move-first-line
-generic = G move-last-line
+  generic = g move-first-line
+  generic = G move-last-line
 
 [branch]
-autosetuprebase = always
+  autosetuprebase = always
 
 [push]
-default = current
+  default = current
 
 [filter "lfs"]
-clean = git-lfs clean %f
-smudge = git-lfs smudge %f
-required = true
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
 
 [http]
-cookiefile = ~/.gitcookies
+  cookiefile = ~/.gitcookies
 
 [core]
-editor = vim
-pager = delta --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended'
+  editor = vim
+  pager = delta
 
 [interactive]
-diffFilter = delta --color-only
+  diffFilter = delta --color-only
+
+[delta]
+  line-numbers = true
+  plus-color = "#012800"
+  minus-color = "#340001"
+  theme = 'Monokai Extended'
 
