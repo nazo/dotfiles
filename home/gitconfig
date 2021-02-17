@@ -46,3 +46,5 @@
   minus-color = "#340001"
   theme = 'Monokai Extended'
 
+[init]
+	defaultBranch = main
