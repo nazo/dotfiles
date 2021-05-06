@@ -15,6 +15,7 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
 
 Plug 'elixir-editors/vim-elixir'
+Plug 'jparise/vim-graphql'
 
 " Visual
 Plug 'itchyny/lightline.vim'
