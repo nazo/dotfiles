@@ -42,5 +42,14 @@ setopt correct
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+if [ "$(uname)" = 'Darwin' ]; then
+  if type brew &>/dev/null; then
+    FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+
+    autoload -Uz compinit
+    compinit
+  fi
+fi
+
 source ~/.zshrc.mine
 
