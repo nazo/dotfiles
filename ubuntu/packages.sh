@@ -25,3 +25,8 @@ sudo dpkg -i fzy_0.9-1_amd64.deb
 
 wget https://github.com/dandavison/delta/releases/download/0.1.1/git-delta_0.1.1_amd64.deb
 sudo dpkg -i git-delta_0.1.1_amd64.deb
+
+# asdf
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.1
+. $HOME/.asdf/asdf.sh
+

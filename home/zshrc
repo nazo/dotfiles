@@ -51,5 +51,9 @@ if [ "$(uname)" = 'Darwin' ]; then
   fi
 fi
 
+if [ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ]; then
+  source /opt/homebrew/opt/asdf/libexec/asdf.sh
+fi
+
 source ~/.zshrc.mine
 
