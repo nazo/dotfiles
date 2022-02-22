@@ -41,10 +41,15 @@
   diffFilter = delta --color-only
 
 [delta]
+  navigate = true
   line-numbers = true
-  plus-color = "#012800"
-  minus-color = "#340001"
   theme = 'Monokai Extended'
+
+[merge]
+  conflictstyle = diff3
+
+[diff]
+  colorMoved = default
 
 [init]
 	defaultBranch = main
