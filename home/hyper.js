@@ -10,7 +10,7 @@ module.exports = {
         // default font size in pixels for all tabs
         fontSize: 16,
         // font family with optional fallbacks
-        fontFamily: 'Myrica M',
+        fontFamily: '"Myrica M", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
         // default font weight: 'normal' or 'bold'
         fontWeight: 'normal',
         // font weight for bold characters: 'normal' or 'bold'
@@ -33,8 +33,7 @@ module.exports = {
         // opacity is only supported on macOS
         backgroundColor: '#000',
         // terminal selection color
-        // selectionColor: 'rgba(248,28,229,0.3)',
-        selectionColor: 'rgba(0,0,0,1.0)',
+        selectionColor: 'rgba(248,28,229,0.3)',
         // border color (window, tabs)
         borderColor: '#333',
         // custom CSS to embed in the main window

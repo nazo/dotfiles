@@ -25,9 +25,8 @@ Plug 'mechatroner/rainbow_csv'
 
 " Finder
 Plug 'mileszs/ack.vim'
-Plug 'justinmk/vim-dirvish'
-Plug 'junegunn/fzf', { 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mattn/ctrlp-matchfuzzy'
 Plug 'vim-scripts/mru.vim'
 
 call plug#end()
@@ -92,4 +91,9 @@ endif
 set backupdir=~/.vimbackup
 set directory=~/.vimswp
 set undodir=~/.vimundo
+
+" ctrlp
+let g:ctrlp_match_func = {'match': 'ctrlp_matchfuzzy#matcher'}
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 

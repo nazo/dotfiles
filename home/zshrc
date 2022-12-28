@@ -57,3 +57,5 @@ fi
 
 source ~/.zshrc.mine
 
+
+export PATH="$HOME/.poetry/bin:$PATH"
